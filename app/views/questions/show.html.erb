@@ -83,6 +83,7 @@
             var screen_name_hidden = $('<input/>', {type:'hidden', value: this.status.user.screenName, name: 'tweet[screen_name]'});
             var status_id_hidden = $('<input/>', {type:'hidden', value: this.status.id, name: 'tweet[status_id]'});
             var category_id_hidden = $('<input/>', {type:'hidden', value: $("#category_id option:selected").eq(0).val(), name: 'tweet[category_id]'});
+            var question_id_hidden = $('<input/>', {type:'hidden', value: <%= @question.id %>, name: 'tweet[question_id]'});
             
             
             var checkbox = $('<td/>', {class:'post_check', html: '<input type="button" value="등록" class="post_tweet" name="check"/>'});
@@ -95,6 +96,7 @@
             row.append(screen_name_hidden);
             row.append(status_id_hidden);
             row.append(category_id_hidden);
+            row.append(question_id_hidden);
             
             $("#mention_table tbody").append(row);           
           }

@@ -18,7 +18,8 @@ class QuestionsController < ApplicationController
     @category = Category.new
     respond_to do |format|
       format.html
-      format.atom 
+      format.rss
+      format.atom
     end
   end
 
