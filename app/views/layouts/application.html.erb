@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comotree</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery-1.4.4.min' %>
+    <script src="http://platform.twitter.com/anywhere.js?id=zbrHMeCKUIMFauyywEemQ&amp;v=1"></script>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    
+    <div id="login"></div>
+    <%= yield %>
+
+
+    <script type="text/javascript">
+
+      twttr.anywhere(function (T) {
+        T("#login").connectButton();
+      });
+
+    </script>
+
+  </body>
+</html>

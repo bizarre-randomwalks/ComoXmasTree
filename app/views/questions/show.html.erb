@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>제목:</b>
+  <%= @question.title %>
+</p>
+
+
+
+<h2>분류들</h2>
+<p>
+<table>
+<% @question.categories.each do |category| %>
+  <tr>
+    <td><%= category.title %></td>    
+    <td><%= link_to 'Show', [@question, category] %></td>
+    <td><%= link_to 'Edit', edit_question_category_path(category) %></td>
+    <td><%= link_to 'Destroy', [@question, category], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</p>
+
+
+
+
+<div id="mentions">
+  <table id="mention_table">
+    <thead>
+      <tr>
+        <td class="all_check">
+          <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :title)) %>
+        </td>
+        <td>내용</td>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
+
+<h2>분류 추가</h2>
+<p>
+<%= render '/categories/form' %>
+</p>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".post_tweet").live('click', function(e){
+      var postTweet = {
+        hidden : $(this).parent().parent().find('input[type="hidden"]'),
+        deleteRow : $(this).parent().parent(),
+        success : function(data){
+          this.deleteRow.remove();  
+        }
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/tweets.json',
+        data: postTweet.hidden.serialize(),
+        success: $.proxy(postTweet.success, postTweet)
+      });
+
+    });
+   
+   $("#category_id").change(function(e){
+      e.preventDefault();
+      $("input[name='tweet[category_id]']").val($(this).val());
+    });
+  });
+
+
+  twttr.anywhere(function (T) {
+    T.currentUser.mentions().first(20).each(function(status){
+      var postCheck = {
+        status : status,
+        success: function(data){
+          if (!data.posted)
+          {
+            var title_hidden = $('<input/>', {type:'hidden', value: this.status.text, name: 'tweet[title]'});
+            var screen_name_hidden = $('<input/>', {type:'hidden', value: this.status.user.screenName, name: 'tweet[screen_name]'});
+            var status_id_hidden = $('<input/>', {type:'hidden', value: this.status.id, name: 'tweet[status_id]'});
+            var category_id_hidden = $('<input/>', {type:'hidden', value: $("#category_id option:selected").eq(0).val(), name: 'tweet[category_id]'});
+            
+            
+            var checkbox = $('<td/>', {class:'post_check', html: '<input type="button" value="등록" class="post_tweet" name="check"/>'});
+            var desc = $('<td/>', {html: '<b>' + this.status.user.screenName + '</b>' + this.status.text + '</p>'});
+            
+            var row = $('<tr/>');
+            row.append(checkbox);
+            row.append(desc);  
+            row.append(title_hidden);
+            row.append(screen_name_hidden);
+            row.append(status_id_hidden);
+            row.append(category_id_hidden);
+            
+            $("#mention_table tbody").append(row);           
+          }
+        }
+      };
+      
+      $.ajax({
+        type: 'GET',
+        data: {status_id: status.id},
+        url: '/tweets/already_posted.json',
+        success: $.proxy(postCheck.success, postCheck)
+      });
+
+    });
+  });
+
+</script>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

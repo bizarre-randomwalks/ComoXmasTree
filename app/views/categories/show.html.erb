@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>분류:</b>
+  <%= @category.title %>
+</p>
+
+
+
+<h2>등록된 트윗들</h2>
+<p>
+<table id="tweet_list">
+<% @category.tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.title %></td>   
+    <td><%= tweet.screen_name %></td>    
+    <td><%= link_to 'Destroy', tweet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</p>
+
+<%=link_to 'back', @question %>
+
+
