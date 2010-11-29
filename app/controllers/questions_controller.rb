@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @category = Category.new
+    @tweets = Tweet.where(:question_id => @question.id).order("created_at DESC")
     respond_to do |format|
       format.html
       format.rss

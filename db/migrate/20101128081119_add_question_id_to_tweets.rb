@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddQuestionIdToTweets < ActiveRecord::Migration
   def self.up
     add_column :tweets, :question_id, :integer

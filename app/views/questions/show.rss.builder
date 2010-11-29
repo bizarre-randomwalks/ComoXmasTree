@@ -5,7 +5,7 @@ xml.rss(:version => "2.0") do
     xml.link(@question)
     xml.description(@question.title)
     xml.language("ko-KR")
-    @question.tweets.each do |tweet|
+    @tweets.each do |tweet|
       xml.item do
         xml.guid(tweet)
         xml.link(tweet)

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTweets < ActiveRecord::Migration
   def self.up
     create_table :tweets do |t|

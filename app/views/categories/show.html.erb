@@ -20,6 +20,29 @@
 </table>
 </p>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("a[data-method='delete']").click(function(e){
+      e.preventDefault();
+      var deleteAction ={
+        td: $(this).parent().parent(),
+        success: function(data){
+          alert("잘 삭제되엇슴");
+          this.td.remove();  
+        }
+      };
+
+      $.ajax({
+        type: 'DELETE',
+        url: $(this).attr('href')+ '.json',
+        success: $.proxy(deleteAction.succsss, deleteAction)
+      });
+
+    });
+  });
+</script>
+
+
 <%=link_to 'back', @question %>
 
 

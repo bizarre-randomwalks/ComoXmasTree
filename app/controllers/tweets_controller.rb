@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(params[:tweet])
@@ -10,6 +11,17 @@ class TweetsController < ApplicationController
 
   end
 
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @category = @tweet.category
+    @tweet.destroy
+
+    respond_to do |format|
+      format.json {render :json => {:success => true}} 
+    end
+
+  end
+  
   def already_posted
     @tweet = Tweet.find_by_status_id(params[:status_id])
 
