@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<div id="login"></div>
+<div id="mentions">
+  <table id="mention_table">
+    <thead>
+      <tr>
+        <td class="all_check">
+        </td>
+        <td>내용</td>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".post_tweet").live('click', function(e){
+      var postTweet = {
+        hidden : $(this).parent().parent().find('input[type="hidden"]'),
+        monthDay : $(this).parent().parent().find('input[type="text"]'),
+        deleteRow : $(this).parent().parent(),
+        success : function(data){
+          this.deleteRow.remove();  
+        }
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/tweets.json',
+        data: postTweet.hidden.serialize() + "&" +  postTweet.monthDay.serialize(),
+        success: $.proxy(postTweet.success, postTweet)
+      });
+
+    });
+   
+   $("#category_id").change(function(e){
+      e.preventDefault();
+      $("input[name='tweet[category_id]']").val($(this).val());
+    });
+  });
+
+
+  twttr.anywhere(function (T) {
+    if (T.isConnected())
+    {
+      T.currentUser.mentions().first(20).each(function(status){
+        var postCheck = {
+          status : status,
+          success: function(data){
+            if (!data.posted)
+            {
+              var title_hidden = $('<input/>', {type:'hidden', value: this.status.text, name: 'memory'});
+              var screen_name_hidden = $('<input/>', {type:'hidden', value: this.status.user.screenName, name: 'screen_name'});
+              var status_id_hidden = $('<input/>', {type:'hidden', value: this.status.id, name: 'status_id'});
+              
+              
+    
+              var checkbox = $('<td/>', {html: '<input type="button" name="post_tweet" class="post_tweet" value="등록"/><label for="month">월</label><input size="2" type="text" value="" name="month"/> <label for="day">일</label><input size="2" type="text" value="" name="day"/>'});
+              var desc = $('<td/>', {html: '<b>' + this.status.user.screenName + '</b>' + this.status.text + '</p>'});
+              
+              var row = $('<tr/>');
+              row.append(checkbox);
+              row.append(desc);  
+              row.append(title_hidden);
+              row.append(screen_name_hidden);
+              row.append(status_id_hidden);
+              
+              $("#mention_table tbody").append(row);           
+            }
+          }
+        };
+        
+        $.ajax({
+          type: 'GET',
+          data: {status_id: status.id},
+          url: '/tweets/already_posted.json',
+          success: $.proxy(postCheck.success, postCheck)
+        });
+
+      });
+      
+    }
+  });
+
+</script>

@@ -1,21 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>제목:</b>
-  <%= @question.title %>
-</p>
-
-
 
 <h2>분류들</h2>
 <p>
 <table>
-<% @question.categories.each do |category| %>
+<% @categories.each do |category| %>
   <tr>
     <td><%= category.title %></td>    
-    <td><%= link_to 'Show', [@question, category] %></td>
-    <td><%= link_to 'Edit', edit_question_category_path(category) %></td>
-    <td><%= link_to 'Destroy', [@question, category], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -32,33 +26,91 @@
           <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :title)) %>
         </td>
         <td>내용</td>
+        <td>글쓴이</td>
+        <td>
+          현재분류
+        </td>
       </tr>
     </thead>
     <tbody>
-      
+      <% @tweets.each do |tweet| %>
+      <tr>
+        <td>
+          <input type="button" value="변경" class="post_tweet" name="check"/>
+        </td>
+        <td>
+          <%= tweet.title %>
+          - <%= tweet.month %>월 <%= tweet.day %>일
+          <p>
+            <%= hidden_field_tag 'tweet_id', tweet.id %>
+            <%= hidden_field_tag 'category_id', tweet.category_id %>
+          </p>
+        </td>
+        <td>
+          <%= tweet.screen_name %>
+        </td>
+        
+        <td class="category_td">
+          <% if tweet.category_id == -1 %>
+            분류없음
+          <% else %>
+            <%= tweet.category.title %>
+          <% end %>
+        </td>
+      </tr>      
+      <% end %>
     </tbody>
   </table>
 </div>
+
 
 <h2>분류 추가</h2>
 <p>
 <%= render '/categories/form' %>
 </p>
 
+
 <script type="text/javascript">
   $(document).ready(function(){
-    $(".post_tweet").live('click', function(e){
-      var postTweet = {
-        hidden : $(this).parent().parent().find('input[type="hidden"]'),
-        deleteRow : $(this).parent().parent(),
-        success : function(data){
-          this.deleteRow.remove();  
+    $("a[data-method='delete']").click(function(e){
+      e.preventDefault();
+      var deleteAction ={
+        td: $(this).parent().parent(),
+        success: function(data){
+          alert("잘 삭제되엇슴");
+          this.td.remove();  
         }
       };
 
       $.ajax({
-        type: 'POST',
-        url: '/tweets.json',
+        type: 'DELETE',
+        url: $(this).attr('href')+ '.json',
+        success: $.proxy(deleteAction.succsss, deleteAction)
+      });
+
+    });
+  });
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".post_tweet").live('click', function(e){
+      var postTweet = {
+        id : $(this).parent().parent().find('input[name="tweet_id"]').val(),
+        hidden: $(this).parent().parent().find('input[type="hidden"]'),
+        row : $(this).parent().parent(),
+        success : function(data){
+          if (data.status)
+          {
+            this.row.find(".category_td").html(data.title);
+          }
+        }
+      };
+
+      $.ajax({
+        type: 'PUT',
+        url: '/tweets/' + postTweet.id + '.json',
         data: postTweet.hidden.serialize(),
         success: $.proxy(postTweet.success, postTweet)
       });
@@ -67,8 +119,11 @@
    
    $("#category_id").change(function(e){
       e.preventDefault();
-      $("input[name='tweet[category_id]']").val($(this).val());
+      $("input[name='category_id']").val($(this).val());
     });
+
+    
+      $("input[name='category_id']").val($("#category_id").val());
   });
 
 
@@ -113,6 +168,3 @@
   });
 
 </script>
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>

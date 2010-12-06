@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  랜덤웍스가 2011년에 TED Fellow가 되었습니다.
+  희망찬 랜덤웍스의 2011년을 기원하면서 2010년,
+  여러분들의 가장 기억에 남은 시간을 공유하고자 합니다.
+  트위터에 남겨주신 데이터를 시각화 하여
+  올해는 어떤 일이 생겼는지, 가장 기억에 남은 순간을 저희와
+  공유해 주세요!
+  
+</p>
+
+<p>
+  -----------------------------
+</p>
+
+<p>
+  randomwalks will be introduced at TED 2011! Please wish our best luck of 2001,
+  and before then, we would like to hear and share your most remarkable moments of 2010.
+  Of course, it doesn't have to be happy moment. Share your 2010 with us, and let's see what 
+  was happened.
+</p>
+<div id="login"></div>
+
+  <table id="mention_table">
+    <thead>
+      <tr>
+        <td class="all_check">
+          올린사람
+        </td>
+        <td>내용</td>
+      </tr>
+    </thead>
+    <tbody>
+<% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.screen_name %></td>
+        <td><%= tweet.title %> <%= tweet.month %> / <%= tweet.day %></td>
+      </tr>
+<% end %> 
+    </tbody>
+  </table>
+<%= render 'form' %>
+
+<script type="text/javascript">
+  twttr.anywhere(function (T) {
+    if (T.isConnected())
+    {
+        $("#tweet_form").show();
+        
+        var tweet_func = {
+          status : T.Status,
+          form: $("#new_tweet"),
+          addTweet: function(status){
+              var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
+              var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
+
+              this.form.append(screen_name);
+              this.form.append(status_id);
+
+              $.ajax({
+                type: 'POST',
+                url: this.form.attr('action') + '.json',
+                data: this.form.serialize(),
+                success: function(data){
+                  // popup!
+                  alert("잘 등록되었심.");
+                }
+              }); 
+          },
+          submitFunction: function(e){
+            e.preventDefault();
+            var body = $("#memory").val() + " / 2010년 " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
+            this.status.update(body, {
+              success: $.proxy(this.addTweet, this),
+              error: function(){
+                alert("failure");
+              }
+            });
+
+            /*
+            if (!($("#month").val() >= 1 && $("#month").val() <= 12))
+            {
+              $.errorMessage("달에는 1과 12 사이의 숫자만 입력하셔야 합니다.");
+            }
+
+            if (!($("#day").val() >= 1 && $("#day") <= 31))
+            {
+              $.errorMessage("날짜에는 1과 31 사이의 숫자만 입력하셔야 합니다.");
+            }
+            
+          
+
+            */
+            
+
+          }
+        };
+
+        $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
+    }
+    else
+    {
+        $("#tweet_form").hide();
+    }
+
+    T.bind("authComplete", function (e, user) {
+        $("#tweet_form").show();
+    });
+
+    T.bind("signOut", function (e) {
+        $("#tweet_form").hide();
+    });
+
+  });
+
+</script>

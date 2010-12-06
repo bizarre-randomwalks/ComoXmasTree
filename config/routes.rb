@@ -1,8 +1,18 @@
 # -*- encoding : utf-8 -*-
 Comotree::Application.routes.draw do
-  resources :questions do
-    resources :categories
+  resources :admins
+
+
+  resources :branches do
+    collection do
+      get 'init'
+    end
   end
+
+  resources :categories 
+
+  resources :treedatas
+
 
   resources :tweets do
     collection do
@@ -10,7 +20,7 @@ Comotree::Application.routes.draw do
     end
   end
 
-  root :to => "questions#index"
+  root :to => "tweets#index"
 
 
   # The priority is based upon order of creation:
