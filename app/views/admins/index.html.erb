@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>@rdwks 멘션 수동 등록</h1>
 <div id="login"></div>
 <div id="mentions">
   <table id="mention_table">
@@ -15,6 +16,38 @@
     </tbody>
   </table>
 </div>
+
+
+<h1>등록 트윗 삭제관리</h1>
+
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.title %></td>
+    <td><%= link_to 'Destroy', tweet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("a[data-method='delete']").click(function(e){
+      e.preventDefault();
+      var deleteAction ={
+        td: $(this).parent().parent(),
+        success: function(data){
+          alert("잘 삭제되엇슴");
+          this.td.remove();  
+        }
+      };
+
+      $.ajax({
+        type: 'DELETE',
+        url: $(this).attr('href')+ '.json',
+        success: $.proxy(deleteAction.succsss, deleteAction)
+      });
+
+    });
+  });
+</script>
 
 <script type="text/javascript">
   $(document).ready(function(){
