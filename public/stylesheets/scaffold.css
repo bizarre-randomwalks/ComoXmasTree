@@ -79,3 +79,8 @@ div.field, div.actions {
 {
   text-align:center
 }
+
+#tweet_form
+{
+  display:none;
+}

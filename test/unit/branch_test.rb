@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'test_helper'
 
-class QuestionTest < ActiveSupport::TestCase
+class BranchTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   test "the truth" do
     assert true

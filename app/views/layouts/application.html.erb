@@ -3,13 +3,14 @@
   <head>
     <title>Comotree</title>
     <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag 'jquery-ui-1.8.6.custom' %>
     <%= javascript_include_tag 'jquery-1.4.4.min' %>
+    <%= javascript_include_tag 'jquery-ui-1.8.6.custom.min' %>
     <script src="http://platform.twitter.com/anywhere.js?id=zbrHMeCKUIMFauyywEemQ&amp;v=1"></script>
     <%= csrf_meta_tag %>
   </head>
   <body>
     
-    <div id="login"></div>
     <%= yield %>
 
 

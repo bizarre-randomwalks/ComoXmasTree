@@ -1,0 +1,28 @@
+<div id="tweet_form">
+  <%= form_for(@tweet) do |f| %>
+    <% if @tweet.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+        <ul>
+        <% @tweet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div style="background-color:#eeeeee">
+      <p>
+        2010년, 나의 기억에 남았던 순간은.
+      </p>
+      <div class="field">
+        <%= text_field_tag :month, '', :size => '1' %> 월
+        <%= text_field_tag :day, '', :size => '1' %> 일, 
+        <%= text_field_tag :memory, '', :size => '100' %> 했던 기억
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>

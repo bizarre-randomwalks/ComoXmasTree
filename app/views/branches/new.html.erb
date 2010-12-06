@@ -1,0 +1,42 @@
+<h1>branches</h1>
+<%= form_for(@branch) do |f| %>
+  <% if @branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @branch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div>
+      <%= f.label :scale %><br />
+      <%= f.text_field :scale %>
+    </div>
+
+    <div>
+      <%= f.label :y %><br />
+      <%= f.text_field :y %>
+    </div>
+    
+    <div>
+      <%= f.label :rotation %><br />
+      <%= f.text_field :rotation %>
+    </div>
+    
+    <div>
+      <%= f.label :length %><br />
+      <%= f.text_field :length %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'back', branches_path %>
