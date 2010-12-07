@@ -7,6 +7,14 @@ class TweetsController < ApplicationController
       format.html
     end
   end
+
+  def month
+    @tweets = Tweet.where("month = ?", params[:q])
+    respond_to do |format|
+      format.xml
+    end
+  end
+
   
   def update
     @tweet = Tweet.find(params[:id])
