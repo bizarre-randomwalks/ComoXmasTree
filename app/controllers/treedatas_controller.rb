@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "rexml/document"
 include REXML
 class TreedatasController < ApplicationController

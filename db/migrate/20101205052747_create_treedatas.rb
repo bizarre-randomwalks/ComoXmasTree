@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTreedatas < ActiveRecord::Migration
   def self.up
     create_table :treedatas do |t|

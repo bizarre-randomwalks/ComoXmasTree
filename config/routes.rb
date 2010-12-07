@@ -1,6 +1,11 @@
 # -*- encoding : utf-8 -*-
 Comotree::Application.routes.draw do
-  resources :admins
+  resources :admins do
+    collection do
+      delete 'deleteall'
+    end
+
+  end
 
 
   resources :branches do

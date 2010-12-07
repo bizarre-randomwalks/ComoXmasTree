@@ -19,16 +19,33 @@
 
 
 <h1>등록 트윗 삭제관리</h1>
-
+<%= link_to "초기화", "/admins/deleteall.json", :id => 'deleteall_link' %> 
+<table id="tweet_table">
 <% @tweets.each do |tweet| %>
   <tr>
     <td><%= tweet.title %></td>
     <td><%= link_to 'Destroy', tweet, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+</table>
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $("#deleteall_link").click(function(e){
+      e.preventDefault();
+      
+      $.ajax({
+        type: 'DELETE',
+        url: $(this).attr('href'),
+        success:function(data){
+          if (data.success)
+          {
+            $("#tweet_table").remove();
+          }
+        }
+      });
+    });
+
     $("a[data-method='delete']").click(function(e){
       e.preventDefault();
       var deleteAction ={
