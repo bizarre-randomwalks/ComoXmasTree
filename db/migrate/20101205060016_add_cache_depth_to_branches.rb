@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCacheDepthToBranches < ActiveRecord::Migration
   def self.up
     add_column :branches, :ancestry_depth, :integer, :default => 0

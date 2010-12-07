@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddDateToTweets < ActiveRecord::Migration
   def self.up
     add_column :tweets, :month, :integer, :default => 0

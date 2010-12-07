@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTreedataToTreedatas < ActiveRecord::Migration
   def self.up
     remove_column :treedatas, :current_parent_id
