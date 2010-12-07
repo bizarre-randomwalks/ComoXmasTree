@@ -50,7 +50,10 @@
         
         var tweet_func = {
           status : T.Status,
+          actionContainer: $("#tweet_button_actions"),
+          btn: $("#tweet_submit").clone(),
           form: $("#new_tweet"),
+          wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
           addTweet: function(status){
               var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
               var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
@@ -62,14 +65,23 @@
                 type: 'POST',
                 url: this.form.attr('action') + '.json',
                 data: this.form.serialize(),
-                success: function(data){
-                  // popup!
-                  alert("잘 등록되었심.");
-                }
+                success: $.proxy(this.finalFunc, this)
               }); 
           },
+          finalFunc: function(data){
+            // popup!
+      
+            this.actionContainer.append(this.btn);
+            this.wait.remove();
+            alert("잘 등록되었심.");
+          },
+
           submitFunction: function(e){
             e.preventDefault();
+            this.actionContainer.append(this.wait);
+            var btn = $("#tweet_submit");
+            btn.remove();
+
             var body = $("#memory").val() + " / 2010년 " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
             this.status.update(body, {
               success: $.proxy(this.addTweet, this),
@@ -106,6 +118,64 @@
 
     T.bind("authComplete", function (e, user) {
         $("#tweet_form").show();
+        var tweet_func = {
+          status : T.Status,
+          btn: $("#tweet_submit").clone(),
+          form: $("#new_tweet"),
+          wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
+          addTweet: function(status){
+              var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
+              var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
+
+              this.form.append(screen_name);
+              this.form.append(status_id);
+
+              $.ajax({
+                type: 'POST',
+                url: this.form.attr('action') + '.json',
+                data: this.form.serialize(),
+                success: function(data){
+                  // popup!
+                  this.wait.after(this.btn);
+                  this.wait.remove();
+                  alert("잘 등록되었심.");
+                }
+              }); 
+          },
+          submitFunction: function(e){
+            e.preventDefault();
+            var btn = $("#tweet_submit");
+            btn.after(this.wait);
+            btn.remove();
+
+            var body = $("#memory").val() + " / 2010년 " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
+            this.status.update(body, {
+              success: $.proxy(this.addTweet, this),
+              error: function(){
+                alert("failure");
+              }
+            });
+
+            /*
+            if (!($("#month").val() >= 1 && $("#month").val() <= 12))
+            {
+              $.errorMessage("달에는 1과 12 사이의 숫자만 입력하셔야 합니다.");
+            }
+
+            if (!($("#day").val() >= 1 && $("#day") <= 31))
+            {
+              $.errorMessage("날짜에는 1과 31 사이의 숫자만 입력하셔야 합니다.");
+            }
+            
+          
+
+            */
+            
+
+          }
+        };
+
+        $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
     });
 
     T.bind("signOut", function (e) {
