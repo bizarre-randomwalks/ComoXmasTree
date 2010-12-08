@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     respond_to do |format|
       format.html
+      format.xml
     end
   end
 
@@ -36,6 +37,7 @@ class TweetsController < ApplicationController
     @tweet.title = params[:memory]
     @tweet.screen_name = params[:screen_name]
     @tweet.status_id = params[:status_id]  
+    @tweet.pic = params[:pic]  
     
     
     respond_to do |format|
@@ -43,28 +45,31 @@ class TweetsController < ApplicationController
         
         @treedata = Treedata.last
 
-        @branch = @treedata.branch.subtree[Random.new.rand(0..@treedata.branch.subtree.count-1)]
+        @branch = treeSelect(@treedata)        
         @branch.tweet = @tweet
         @branch.save
 
+        len = Random.new.rand(100..150)
         
         @rightBranch = Branch.new
-        @rightBranch.length = Random.new.rand(100..@branch.length)
+        @rightBranch.scale = @branch.scale * Random.new.rand(0.7..0.99)
+        @rightBranch.length = len * @rightBranch.scale
         @rightBranch.rotation = Random.new.rand(30..70)
-        @rightBranch.scale = Random.new.rand(0.7..0.99)
         @rightBranch.y = -@branch.length
         @rightBranch.parent = @branch
         @rightBranch.save
         
         
         @leftBranch = Branch.new
-        @leftBranch.length = Random.new.rand(100..@branch.length)
+        @leftBranch.scale = @branch.scale * Random.new.rand(0.8..0.9)
+        @leftBranch.length = len * @leftBranch.scale
         @leftBranch.rotation = Random.new.rand(-70..-30)
-        @leftBranch.scale = Random.new.rand(0.7..0.99)
         @leftBranch.y = -@branch.length
         @leftBranch.parent = @branch
         @leftBranch.save
-
+        
+        @treedata.currentTweet += 1
+        @treedata.save
 
         format.json { render :json => {:status => true} }
       end
@@ -93,5 +98,57 @@ class TweetsController < ApplicationController
         format.json { render :json => {:posted => false} } 
       end
     end
+  end
+
+  private
+  def treeSelect(treedata)
+    
+    if treedata.currentTweet > treedata.centerTweet - 1
+      branch = treedata.centerbranch
+      treedata.centerTweet = treedata.centerTweet * 2
+      treedata.currentTweet = 0
+      treedata.save
+      timeToCenter = true
+    else
+      branch = treedata.branch.subtree[Random.new.rand(0..treedata.branch.subtree.count-1)]
+      timeToCenter = false
+    end
+
+    logger.info 'branch.depth'
+    logger.info branch.depth 
+    logger.info 'branch.tweet'
+    
+    begin
+      id = branch.tweet.id 
+      existTweet = true
+    rescue
+      existTweet = false
+      logger.info 'empty tweet'
+    end
+
+
+    if existTweet || branch.depth.to_s == "0" || (branch == treedata.centerbranch && !timeToCenter) 
+      treeSelect(treedata)
+    elsif branch == treedata.centerbranch && timeToCenter
+      
+      centerBranch = Branch.new
+      centerBranch.scale = treedata.centerbranch.scale * Random.new.rand(0.7..0.99)
+      centerBranch.length = branch.length
+      centerBranch.rotation = 0
+      centerBranch.y = -branch.length
+      centerBranch.parent = branch
+      centerBranch.save
+      
+      treedata.centerbranch = centerBranch
+      treedata.save
+    end
+
+    return branch
+    
+  end
+
+
+  def max(a, b)
+    a > b ? a : b
   end
 end

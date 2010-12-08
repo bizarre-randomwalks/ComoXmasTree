@@ -68,6 +68,7 @@ class BranchesController < ApplicationController
 
     @treedata = Treedata.new
     @treedata.branch = @root
+    @treedata.centerbranch = @centerBranch
     @treedata.currentDepth = 1
     @treedata.save
     

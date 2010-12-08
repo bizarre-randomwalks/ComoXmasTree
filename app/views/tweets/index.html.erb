@@ -56,10 +56,12 @@
           wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
           addTweet: function(status){
               var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
+              var pic = $("<input/>", {type:'hidden', name: 'pic', value: status.user.profileImageUrl});
               var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
 
               this.form.append(screen_name);
               this.form.append(status_id);
+              this.form.append(pic);
 
               $.ajax({
                 type: 'POST',
@@ -82,7 +84,7 @@
             var btn = $("#tweet_submit");
             btn.remove();
 
-            var body = $("#memory").val() + " / 2010년 " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
+            var body = $("#memory").val() + " / " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
             this.status.update(body, {
               success: $.proxy(this.addTweet, this),
               error: function(){
@@ -125,9 +127,11 @@
           wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
           addTweet: function(status){
               var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
+              var pic = $("<input/>", {type:'hidden', name: 'pic', value: status.user.profileImageUrl});
               var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
 
               this.form.append(screen_name);
+              this.form.append(pic);
               this.form.append(status_id);
 
               $.ajax({
