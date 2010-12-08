@@ -42,6 +42,9 @@ class TreedatasController < ApplicationController
         begin
           childElem.add_attribute("tweet_title", children.tweet.title)
           childElem.add_attribute("screen_name", children.tweet.screen_name)
+          childElem.add_attribute("month", children.tweet.month)
+          childElem.add_attribute("day", children.tweet.day)
+          childElem.add_attribute("status_id", children.tweet.status_id)
         rescue
         end
 
