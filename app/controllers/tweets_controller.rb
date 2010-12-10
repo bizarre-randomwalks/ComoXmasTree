@@ -9,6 +9,15 @@ class TweetsController < ApplicationController
     end
   end
 
+  def tweetlist
+    @tweets = Tweet.all
+    respond_to do |format|
+      format.html {render :layout => 'list'}
+    end
+
+  end
+
+
   def month
     @tweets = Tweet.where("month = ?", params[:q])
     respond_to do |format|
@@ -32,8 +41,10 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new
-    @tweet.month = params[:month]
-    @tweet.day = params[:day]
+    date = params[:date].split('/')
+
+    @tweet.month = date[0]
+    @tweet.day = date[1]
     @tweet.title = params[:memory]
     @tweet.screen_name = params[:screen_name]
     @tweet.status_id = params[:status_id]  
@@ -46,23 +57,31 @@ class TweetsController < ApplicationController
         @treedata = Treedata.last
 
         @branch = treeSelect(@treedata)        
-        @branch.tweet = @tweet
+        @branch.tweet_id = @tweet.id
         @branch.save
 
-        len = Random.new.rand(100..150)
+        len = Random.new.rand(100..200)
         
         @rightBranch = Branch.new
         @rightBranch.scale = @branch.scale * Random.new.rand(0.7..0.99)
-        @rightBranch.length = len * @rightBranch.scale
+        @rightBranch.length = len
         @rightBranch.rotation = Random.new.rand(30..70)
         @rightBranch.y = -@branch.length
         @rightBranch.parent = @branch
         @rightBranch.save
+
+        @centerBranch = Branch.new
+        @centerBranch.scale = @branch.scale * Random.new.rand(0.8..0.9)
+        @centerBranch.length = len
+        @centerBranch.rotation = 0
+        @centerBranch.y = -@branch.length
+        @centerBranch.parent = @branch
+        @centerBranch.save
         
         
         @leftBranch = Branch.new
         @leftBranch.scale = @branch.scale * Random.new.rand(0.8..0.9)
-        @leftBranch.length = len * @leftBranch.scale
+        @leftBranch.length = len
         @leftBranch.rotation = Random.new.rand(-70..-30)
         @leftBranch.y = -@branch.length
         @leftBranch.parent = @branch
@@ -103,6 +122,7 @@ class TweetsController < ApplicationController
   private
   def treeSelect(treedata)
     
+    timeToCenter = false
     if treedata.currentTweet > treedata.centerTweet - 1
       branch = treedata.centerbranch
       treedata.centerTweet = treedata.centerTweet * 2
@@ -110,30 +130,16 @@ class TweetsController < ApplicationController
       treedata.save
       timeToCenter = true
     else
-      branch = treedata.branch.subtree[Random.new.rand(0..treedata.branch.subtree.count-1)]
-      timeToCenter = false
+      branch = treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", -1, 0)[Random.new.rand(0..treedata.branch.subtree.count-1)]
     end
-
-    logger.info 'branch.depth'
-    logger.info branch.depth 
-    logger.info 'branch.tweet'
     
-    begin
-      id = branch.tweet.id 
-      existTweet = true
-    rescue
-      existTweet = false
-      logger.info 'empty tweet'
-    end
-
-
-    if existTweet || branch.depth.to_s == "0" || (branch == treedata.centerbranch && !timeToCenter) 
-      treeSelect(treedata)
+    if (branch == treedata.centerbranch && !timeToCenter) || branch == nil
+      branch = treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", -1, 0).order('ancestry_depth ASC').first
     elsif branch == treedata.centerbranch && timeToCenter
       
       centerBranch = Branch.new
-      centerBranch.scale = treedata.centerbranch.scale * Random.new.rand(0.7..0.99)
-      centerBranch.length = branch.length
+      centerBranch.scale = Random.new.rand(0.7..0.99)
+      centerBranch.length = Random.new.rand(150..200)
       centerBranch.rotation = 0
       centerBranch.y = -branch.length
       centerBranch.parent = branch

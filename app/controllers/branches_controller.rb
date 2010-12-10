@@ -34,16 +34,19 @@ class BranchesController < ApplicationController
 
 
     @root = Branch.new
-    @root.length = 150
+    @root.length = 100
     @root.rotation = 0
     @root.y = 0
     @root.scale = 1
 
     @root.save
-    
+
+    len = 150
+    rot = 70
+
     @leftBranch = Branch.new
-    @leftBranch.length = Random.new.rand(100..@root.length)
-    @leftBranch.rotation = Random.new.rand(-70..-30)
+    @leftBranch.length = len
+    @leftBranch.rotation = -rot
     @leftBranch.scale = Random.new.rand(0.7..0.99)
     @leftBranch.y = -@root.length
     @leftBranch.parent = @root
@@ -51,15 +54,15 @@ class BranchesController < ApplicationController
 
 
     @rightBranch = Branch.new
-    @rightBranch.length = Random.new.rand(100..@root.length)
-    @rightBranch.rotation = Random.new.rand(30..70)
+    @rightBranch.length = len
+    @rightBranch.rotation = rot
     @rightBranch.scale = Random.new.rand(0.7..0.99)
     @rightBranch.y = -@root.length
     @rightBranch.parent = @root
     @rightBranch.save
     
     @centerBranch = Branch.new
-    @centerBranch.length = Random.new.rand(100..@root.length)
+    @centerBranch.length = Random.new.rand(100..120)
     @centerBranch.rotation = 0
     @centerBranch.scale = Random.new.rand(0.7..0.99)
     @centerBranch.y = -@root.length

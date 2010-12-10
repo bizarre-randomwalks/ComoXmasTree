@@ -1,0 +1,22 @@
+
+<div id="tweetlists">
+<% @tweets.each do |tweet| %>
+  <div class="tweet_list">
+  <%= tweet.title %> 
+    <div class="tweet_screenName">
+    @<%= tweet.screen_name %>
+    </div>
+  </div>
+  <% if @tweets.last != tweet %>
+    <div class="and">
+      <b> & </b> 
+    </div>
+  <% end %>
+<% end %>
+</div>
+<script type="text/javascript">
+  Cufon.set('fontFamily', 'SM SSMyungJo Std Regular');
+  Cufon.replace('.tweet_list', {color: '#d95344', fontSize:'25px', letterSpacing:'-2px' });
+  Cufon.replace('.tweet_screenName', {color: '#555555', fontSize:'15px', letterSpacing:'-2px' });
+  Cufon.replace('.and', {color: '#000000', fontSize:'20px', letterSpacing:'-5px' });
+</script>

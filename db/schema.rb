@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101208061439) do
+ActiveRecord::Schema.define(:version => 20101209114245) do
 
   create_table "branchconnections", :force => true do |t|
     t.integer  "brancher_id"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(:version => 20101208061439) do
     t.float    "y"
     t.float    "rotation"
     t.float    "length"
-    t.integer  "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
     t.integer  "ancestry_depth", :default => 0
+    t.integer  "tweet_id",       :default => -1
   end
 
   add_index "branches", ["ancestry"], :name => "index_branches_on_ancestry"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20101208061439) do
     t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "huemin"
+    t.integer  "huemax"
   end
 
   create_table "treedatas", :force => true do |t|
@@ -54,13 +56,13 @@ ActiveRecord::Schema.define(:version => 20101208061439) do
     t.string   "title"
     t.string   "screen_name"
     t.integer  "status_id"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "question_id"
     t.integer  "month",       :default => 0
     t.integer  "day",         :default => 0
     t.string   "pic"
+    t.integer  "category_id", :default => -1
   end
 
 end

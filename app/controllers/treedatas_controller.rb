@@ -48,6 +48,11 @@ class TreedatasController < ApplicationController
         rescue
         end
 
+        begin          
+          childElem.add_attribute("category", children.tweet.category.id)
+        rescue
+        end
+
         
         elem.add(childElem)
         recursiveGenerateXML(children, childElem)

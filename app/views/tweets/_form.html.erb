@@ -11,17 +11,20 @@
         </ul>
       </div>
     <% end %>
-    <div style="background-color:#eeeeee">
-      <p>
-        2010년, 나의 기억에 남았던 순간은.
-      </p>
+    <div id="realform" style="background-color:#EBF9FE">
       <div class="field">
-        <%= text_field_tag :month, '', :size => '1' %> 월
-        <%= text_field_tag :day, '', :size => '1' %> 일, 
-        <%= text_field_tag :memory, '', :size => '100' %> 했던 기억
+        <div class="calendar">
+          <p style="margin-bottom:10px">
+            2010년, 나의 기억에 남았던 순간은 / My most memorable moment in year 2010
+          </p>
+          <%= text_field_tag :date, '10/11', :size => '5', :disabled => true %>일, 
+        </div>
+        <div>
+          <%= text_area_tag :memory, '트위터에 로그인 후 작성 가능합니다', :placeholder => '기억을 써주세요', :size => '100', :disabled => true %> 
+        </div>
       </div>
       <div id="tweet_button_actions">
-        <%= f.submit %>
+        <%= image_submit_tag 'btn_disabled.png', :id => 'tweet_button_actions_btn', :disabled => true %> 혹은 그냥 보기 / or just see results.
       </div>
     </div>
   <% end %>

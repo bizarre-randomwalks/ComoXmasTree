@@ -1,0 +1,31 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    </div>
+    <div>
+    <%= f.label :huemin %><br />
+    <%= f.text_field :huemin %>    
+    </div>
+    <div>
+    <%= f.label :huemax %><br />
+    <%= f.text_field :huemax %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

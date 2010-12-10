@@ -4,7 +4,34 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @category = Category.new
     @tweets = Tweet.all
+
+    respond_to do |format|
+      format.html
+      format.xml
+    end
+
   end
+
+  def edit
+  
+    @category = Category.find(params[:id])
+  
+  end
+
+  
+  def update
+  
+    @category = Category.find(params[:id])
+
+    @category.update_attributes(params[:category])
+    respond_to do |format|
+        format.html { redirect_to(categories_path, :notice => '분류가 성공적으로 등록되었습니다.') }
+    end
+
+  
+  end
+
+
 
   def show
     @category = Category.find(params[:id])

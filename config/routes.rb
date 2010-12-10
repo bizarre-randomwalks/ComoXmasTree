@@ -23,6 +23,7 @@ Comotree::Application.routes.draw do
     collection do
       get 'already_posted'
       get 'month'
+      get 'tweetlist'
     end
   end
 
