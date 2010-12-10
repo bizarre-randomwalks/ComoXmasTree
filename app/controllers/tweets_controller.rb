@@ -123,7 +123,8 @@ class TweetsController < ApplicationController
 
   private
   def treeSelect(treedata)
-        
+    logger.info 'treedata.branch.descendants'
+    logger.info(treedata.branch.descendants.size)
     timeToCenter = false
     if treedata.currentTweet > treedata.centerTweet - 1
       branch = treedata.centerbranch
