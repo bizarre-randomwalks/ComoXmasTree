@@ -22764,3 +22764,31 @@ Started GET "/" for 175.219.68.239 at 2010-12-11 07:43:28 +0900
 Rendered tweets/_form.html.erb (1.2ms)
 Rendered tweets/index.html.erb within layouts/application (3.6ms)
 Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 07:52:54 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (15.7ms)
+Rendered tweets/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 94ms (Views: 26.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 07:54:08 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"08/12", "memory"=>"kyukyukyukykyukuykyuktyjtyj", "screen_name"=>"rdwks", "status_id"=>"13366023604412416", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+3
+branch.id
+Completed   in 168ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:04:12 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (2.8ms)
+Rendered tweets/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 3.1ms)
