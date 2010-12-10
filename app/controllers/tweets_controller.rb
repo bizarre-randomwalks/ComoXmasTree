@@ -57,6 +57,8 @@ class TweetsController < ApplicationController
         @treedata = Treedata.last
 
         @branch = treeSelect(@treedata)        
+        logger.info 'branch.id'
+        logger.info @branch.id
         @branch.tweet_id = @tweet.id
         @branch.save
 
