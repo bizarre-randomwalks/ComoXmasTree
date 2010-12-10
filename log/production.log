@@ -22489,3 +22489,278 @@ Started GET "/" for 175.219.68.239 at 2010-12-11 06:30:37 +0900
 Rendered tweets/_form.html.erb (15.3ms)
 Rendered tweets/index.html.erb within layouts/application (22.0ms)
 Completed 200 OK in 96ms (Views: 26.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:38:19 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (15.1ms)
+Rendered tweets/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 97ms (Views: 27.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:38:51 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.3ms)
+Rendered tweets/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:39:10 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.1ms)
+Rendered tweets/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 06:39:23 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"10/18", "memory"=>"qweqweqwe", "screen_name"=>"rdwks", "status_id"=>"13347230178086912", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+branch.id
+Completed   in 137ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:39:24 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.3ms)
+Rendered tweets/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 06:39:31 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 100ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 06:39:32 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/admins" for 175.219.68.239 at 2010-12-11 06:39:37 +0900
+  Processing by AdminsController#index as HTML
+Rendered admins/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13347230178086912" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13347230178086912"}
+Completed 200 OK in 11ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13342086350770176" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13342086350770176"}
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13187177206775808" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13187177206775808"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13186920255332352" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13186920255332352"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13182512016654336" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13182512016654336"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13187386989092864" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13187386989092864"}
+Completed 200 OK in 75ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13182234869633024" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13182234869633024"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13181759181037568" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13181759181037568"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13180486675337216" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13180486675337216"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13178773641895936" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13178773641895936"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13178595258138624" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13178595258138624"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13178176825982976" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13178176825982976"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13177980398346240" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13177980398346240"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13177681461907456" for 175.219.68.239 at 2010-12-11 06:39:39 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13177681461907456"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13177158595776512" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13177158595776512"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13176798418305024" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13176798418305024"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13176591106449408" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13176591106449408"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13175930147049472" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13175930147049472"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13175460703768576" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13175460703768576"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13175245007486976" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13175245007486976"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/admins/deleteall.json" for 175.219.68.239 at 2010-12-11 06:39:40 +0900
+  Processing by AdminsController#deleteall as JSON
+Completed 200 OK in 85ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:39:42 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (2.8ms)
+Rendered tweets/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 06:39:52 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"07/12", "memory"=>"sdffwerqweqweqweqweqwasdasds", "screen_name"=>"rdwks", "status_id"=>"13347351179567104", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+branch.id
+Completed   in 35ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:40:04 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.5ms)
+Rendered tweets/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 06:42:43 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.1ms)
+Rendered tweets/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 07:21:36 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 75ms (Views: 9.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 07:21:46 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 39ms (Views: 1.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 66.249.67.129 at 2010-12-11 07:21:58 +0900
+  Processing by TweetsController#index as */*
+Rendered tweets/_form.html.erb (44.7ms)
+Rendered tweets/index.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 55ms (Views: 52.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 07:31:25 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 07:33:59 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 101ms (Views: 2.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 07:33:59 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 07:34:10 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (46.4ms)
+Rendered tweets/index.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 59ms (Views: 56.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 07:34:22 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"10/20", "memory"=>"qweqwewq vbbbbbbbbbbb", "screen_name"=>"rdwks", "status_id"=>"13361065677037568", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+branch.id
+Completed   in 56ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 07:43:28 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 2.4ms)

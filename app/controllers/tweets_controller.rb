@@ -123,7 +123,7 @@ class TweetsController < ApplicationController
 
   private
   def treeSelect(treedata)
-    
+        
     timeToCenter = false
     if treedata.currentTweet > treedata.centerTweet - 1
       branch = treedata.centerbranch
@@ -137,6 +137,8 @@ class TweetsController < ApplicationController
     
     if (branch == treedata.centerbranch && !timeToCenter) || branch == nil
       branch = treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", -1, 0).order('ancestry_depth ASC').first
+      
+      #logger.info('branch' + branch.id)
     elsif branch == treedata.centerbranch && timeToCenter
       
       centerBranch = Branch.new
