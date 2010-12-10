@@ -103,10 +103,13 @@
           success: function(data){
             if (!data.posted)
             {
-              var title_hidden = $('<input/>', {type:'hidden', value: this.status.text, name: 'memory'});
-              var screen_name_hidden = $('<input/>', {type:'hidden', value: this.status.user.screenName, name: 'screen_name'});
-              var status_id_hidden = $('<input/>', {type:'hidden', value: this.status.id, name: 'status_id'});
-              
+              var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
+              var pic = $("<input/>", {type:'hidden', name: 'pic', value: status.user.profileImageUrl});
+              var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
+
+              this.form.append(screen_name);
+              this.form.append(status_id);
+              this.form.append(pic);
               
     
               var checkbox = $('<td/>', {html: '<input type="button" name="post_tweet" class="post_tweet" value="등록"/><label for="month">월</label><input size="2" type="text" value="" name="month"/> <label for="day">일</label><input size="2" type="text" value="" name="day"/>'});
