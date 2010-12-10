@@ -241,7 +241,6 @@
       
             this.actionContainer.append(this.btn);
             this.wait.remove();
-            alert("잘 등록되었심.");
           },
 
           submitFunction: function(e){
@@ -250,7 +249,8 @@
             var btn = $("#tweet_submit");
             btn.remove();
 
-            var body = $("#memory").val() + " / " + $("#month").val() + "월 " + $("#day").val() + "일 @rdwks #2010Adieu";
+            var splitString = $("#date").val().split('/');
+            var body = $("#memory").val() + " / " + splitString[0] + "월 " + splitString[1] + "일 @rdwks #2010Adieu";
             this.status.update(body, {
               success: $.proxy(this.addTweet, this),
               error: function(){
