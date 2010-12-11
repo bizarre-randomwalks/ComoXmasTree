@@ -1,0 +1,1103 @@
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 11:55:51 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+SQLite3::SQLException: no such table: tweets: SELECT "tweets".* FROM "tweets"
+Completed   in 656ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tweets: SELECT "tweets".* FROM "tweets"):
+  app/controllers/tweets_controller.rb:4:in `index'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.2ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (62.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (62.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateQuestions (20101128001524)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101128001524')
+Migrating to CreateCategories (20101128003034)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "question_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101128003034')
+Migrating to CreateTweets (20101128051054)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "screen_name" varchar(255), "status_id" integer, "category_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101128051054')
+Migrating to AddQuestionIdToTweets (20101128081119)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "tweets" ADD "question_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101128081119')
+Migrating to CreateBranches (20101205035733)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "scale" float, "y" float, "rotation" float, "length" float, "tweet_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101205035733')
+Migrating to CreateBranchconnections (20101205040337)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "branchconnections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "brancher_id" integer, "branchee_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101205040337')
+Migrating to AddAncestryToBranches (20101205044847)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "branches" ADD "ancestry" varchar(255)[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("branches")
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE INDEX "index_branches_on_ancestry" ON "branches" ("ancestry")[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101205044847')
+Migrating to CreateTreedatas (20101205052747)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "treedatas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "current_parent_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101205052747')
+Migrating to AddCacheDepthToBranches (20101205060016)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "branches" ADD "ancestry_depth" integer DEFAULT 0[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101205060016')
+Migrating to AddTreedataToTreedatas (20101205060412)
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TEMPORARY TABLE "altered_treedatas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "current_parent_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("treedatas")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "treedatas"[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE TABLE "treedatas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_treedatas")[0m
+  [1m[35mSQL (0.0ms)[0m  DROP TABLE "altered_treedatas"
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "treedatas" ADD "branch_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "treedatas" ADD "currentDepth" integer
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101205060412')[0m
+Migrating to DeleteQuestions (20101206052102)
+  [1m[35mSQL (15.6ms)[0m  DROP TABLE "questions"
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101206052102')[0m
+Migrating to AddDateToTweets (20101206064447)
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "tweets" ADD "month" integer DEFAULT 0
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "tweets" ADD "day" integer DEFAULT 0[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101206064447')
+Migrating to AddCenterbranchToTreedatas (20101208000446)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "treedatas" ADD "centerbranch_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101208000446')
+Migrating to AddCenterbranchdataToTreedatas (20101208013504)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "treedatas" ADD "currentTweet" integer DEFAULT 0[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "treedatas" ADD "centerTweet" integer DEFAULT 3
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101208013504')[0m
+Migrating to AddPicToTweets (20101208061439)
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "tweets" ADD "pic" varchar(255)
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101208061439')[0m
+Migrating to SetDefaultToBranches (20101208070718)
+  [1m[35mSQL (0.0ms)[0m  CREATE TEMPORARY TABLE "altered_branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "scale" float, "y" float, "rotation" float, "length" float, "tweet_id" integer, "created_at" datetime, "updated_at" datetime, "ancestry" varchar(255), "ancestry_depth" integer DEFAULT 0) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("branches")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_branches_on_ancestry')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_branches")[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE INDEX "temp_index_altered_branches_on_ancestry" ON "altered_branches" ("ancestry")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "branches"[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "scale" float, "y" float, "rotation" float, "length" float, "created_at" datetime, "updated_at" datetime, "ancestry" varchar(255), "ancestry_depth" integer DEFAULT 0) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_branches")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_branches_on_ancestry')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("branches")[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE INDEX "index_branches_on_ancestry" ON "branches" ("ancestry")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "altered_branches"[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE TEMPORARY TABLE "altered_branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "scale" float, "y" float, "rotation" float, "length" float, "created_at" datetime, "updated_at" datetime, "ancestry" varchar(255), "ancestry_depth" integer DEFAULT 0) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("branches")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_branches_on_ancestry')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_branches")[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE INDEX "temp_index_altered_branches_on_ancestry" ON "altered_branches" ("ancestry")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "branches"[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE TABLE "branches" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "scale" float, "y" float, "rotation" float, "length" float, "created_at" datetime, "updated_at" datetime, "ancestry" varchar(255), "ancestry_depth" integer DEFAULT 0) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_branches")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('temp_index_altered_branches_on_ancestry')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("branches")[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE INDEX "index_branches_on_ancestry" ON "branches" ("ancestry")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "altered_branches"[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "branches" ADD "tweet_id" integer DEFAULT -1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101208070718')[0m
+Migrating to ModifyCategoryIdToTweets (20101209104221)
+  [1m[35mSQL (0.0ms)[0m  CREATE TEMPORARY TABLE "altered_tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "screen_name" varchar(255), "status_id" integer, "category_id" integer, "created_at" datetime, "updated_at" datetime, "question_id" integer, "month" integer DEFAULT 0, "day" integer DEFAULT 0, "pic" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tweets")[0m
+  [1m[35mSQL (0.0ms)[0m  DROP TABLE "tweets"
+  [1m[36mSQL (0.0ms)[0m  [1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "screen_name" varchar(255), "status_id" integer, "created_at" datetime, "updated_at" datetime, "question_id" integer, "month" integer DEFAULT 0, "day" integer DEFAULT 0, "pic" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("altered_tweets")
+  [1m[36mSQL (0.0ms)[0m  [1mDROP TABLE "altered_tweets"[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "tweets" ADD "category_id" integer DEFAULT -1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101209104221')[0m
+Migrating to AddHueToCategories (20101209114245)
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "categories" ADD "huemin" integer
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "categories" ADD "huemax" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101209114245')
+Migrating to AddTweetedToBranches (20101211010542)
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "branches" ADD "tweeted" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101211010542')
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("branchconnections")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("branches")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_branches_on_ancestry')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("treedatas")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("tweets")[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 11:59:01 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 703ms (Views: 62.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 11:59:51 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:00:14 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"10/26", "memory"=>"wffwwwwwwwwwwwwwwwwwwwwwwwww", "screen_name"=>"rdwks", "status_id"=>"13427812115423232", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('wffwwwwwwwwwwwwwwwwwwwwwwwww', 'rdwks', 13427812115423232, '2010-12-11 03:00:14.158375', '2010-12-11 03:00:14.158375', NULL, 10, 26, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+Completed   in 250ms
+
+NoMethodError (undefined method `branch' for nil:NilClass):
+  app/controllers/tweets_controller.rb:127:in `treeSelect'
+  app/controllers/tweets_controller.rb:59:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:00:39 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:01:27 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"10/28", "memory"=>"wfewfqqqqqqqqqq", "screen_name"=>"rdwks", "status_id"=>"13428118534488064", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('wfewfqqqqqqqqqq', 'rdwks', 13428118534488064, '2010-12-11 03:01:27.236500', '2010-12-11 03:01:27.236500', NULL, 10, 28, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+Completed   in 125ms
+
+NoMethodError (undefined method `branch' for nil:NilClass):
+  app/controllers/tweets_controller.rb:127:in `treeSelect'
+  app/controllers/tweets_controller.rb:59:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.6ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (62.5ms)
+
+
+Started GET "/branches/init" for 127.0.0.1 at 2010-12-11 12:01:46 +0900
+  Processing by BranchesController#init as HTML
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches"
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (1.0, 0.0, 0.0, 100.0, '2010-12-11 03:01:46.861500', '2010-12-11 03:01:46.861500', NULL, 0, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.7574089902103687, -100.0, -70.0, 150.0, '2010-12-11 03:01:46.955250', '2010-12-11 03:01:46.955250', '1', 1, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.9263628308364272, -100.0, 70.0, 150.0, '2010-12-11 03:01:47.049000', '2010-12-11 03:01:47.049000', '1', 1, -1, 'f')[0m
+  [1m[35mAREL (15.6ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.7110303465425943, -100.0, 0.0, 102.0, '2010-12-11 03:01:47.127125', '2010-12-11 03:01:47.127125', '1', 1, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "treedatas" ("created_at", "updated_at", "branch_id", "currentDepth", "centerbranch_id", "currentTweet", "centerTweet") VALUES ('2010-12-11 03:01:47.236500', '2010-12-11 03:01:47.236500', 1, 1, 4, 0, 3)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches"
+Redirected to http://xmastree.randomwalks.org:3000/branches
+Completed 302 Found in 531ms
+
+
+Started GET "/branches" for 127.0.0.1 at 2010-12-11 12:01:47 +0900
+  Processing by BranchesController#index as HTML
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches"[0m
+Rendered branches/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admins" for 127.0.0.1 at 2010-12-11 12:02:00 +0900
+  Processing by AdminsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered admins/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/admins/deleteall.json" for 127.0.0.1 at 2010-12-11 12:02:02 +0900
+  Processing by AdminsController#deleteall as JSON
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches".tweet_id = 1) LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "tweets" WHERE ("tweets"."id" = 1)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches".tweet_id = 2) LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mDELETE FROM "tweets" WHERE ("tweets"."id" = 2)[0m
+Completed 200 OK in 250ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13398877335986176" for 127.0.0.1 at 2010-12-11 12:02:08 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13398877335986176"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13398877335986176) LIMIT 1
+Completed 200 OK in 297ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13413905346854912" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13413905346854912"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13413905346854912) LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13407829675212800" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13407829675212800"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13407829675212800) LIMIT 1
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13400153574608896" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13400153574608896"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13400153574608896) LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13428118534488064" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13428118534488064"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13428118534488064) LIMIT 1
+Completed 200 OK in 62ms (Views: 31.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13427812115423232" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13427812115423232"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13427812115423232) LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13397992216207360" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13397992216207360"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13397992216207360) LIMIT 1
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13397385661128704" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13397385661128704"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13397385661128704) LIMIT 1[0m
+Completed 200 OK in 62ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13391102396604416" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13391102396604416"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13391102396604416) LIMIT 1
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13389844235423744" for 127.0.0.1 at 2010-12-11 12:02:09 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13389844235423744"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13389844235423744) LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13389360959332352" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13389360959332352"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13389360959332352) LIMIT 1
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13382942432690176" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13382942432690176"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13382942432690176) LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13382092154998784" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13382092154998784"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13382092154998784) LIMIT 1
+Completed 200 OK in 47ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13381766505046016" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13381766505046016"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13381766505046016) LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13371158405578752" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13371158405578752"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13371158405578752) LIMIT 1
+Completed 200 OK in 62ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13370685996924928" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13370685996924928"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13370685996924928) LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13366023604412416" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13366023604412416"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13366023604412416) LIMIT 1
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13361065677037568" for 127.0.0.1 at 2010-12-11 12:02:10 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13361065677037568"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13361065677037568) LIMIT 1[0m
+Completed 200 OK in 62ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13347351179567104" for 127.0.0.1 at 2010-12-11 12:02:11 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13347351179567104"}
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13347351179567104) LIMIT 1
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/already_posted.json?status_id=13347230178086912" for 127.0.0.1 at 2010-12-11 12:02:11 +0900
+  Processing by TweetsController#already_posted as JSON
+  Parameters: {"status_id"=>"13347230178086912"}
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets" WHERE ("tweets"."status_id" = 13347230178086912) LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:02:11 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"10/26", "memory"=>"werwerwwerrrrrrrr", "screen_name"=>"rdwks", "status_id"=>"13428304484769792", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('werwerwwerrrrrrrr', 'rdwks', 13428304484769792, '2010-12-11 03:02:11.720875', '2010-12-11 03:02:11.720875', NULL, 10, 26, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (15.6ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 4) LIMIT 1
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1[0m
+branch.id
+2
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 3, "updated_at" = '2010-12-11 03:02:11.892750' WHERE ("branches"."id" = 2)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.561400268301022, -150.0, 43.0, 164.0, '2010-12-11 03:02:11.970875', '2010-12-11 03:02:11.970875', '1/2', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6236485960179818, -150.0, 0.0, 164.0, '2010-12-11 03:02:12.064625', '2010-12-11 03:02:12.064625', '1/2', 2, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.644601761092247, -150.0, -50.0, 164.0, '2010-12-11 03:02:12.142750', '2010-12-11 03:02:12.142750', '1/2', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 1, "updated_at" = '2010-12-11 03:02:12.236500' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 672ms (Views: 31.2ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:28:45 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"11/15", "memory"=>"werwerwweweewrrrrrrrrqqqqqqqqqq", "screen_name"=>"rdwks", "status_id"=>"13434990444417024", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('werwerwweweewrrrrrrrrqqqqqqqqqq', 'rdwks', 13434990444417024, '2010-12-11 03:28:45.611500', '2010-12-11 03:28:45.611500', NULL, 11, 15, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 4) LIMIT 1[0m
+branch.id
+5
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 4, "updated_at" = '2010-12-11 03:28:45.752125' WHERE ("branches"."id" = 5)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5175428750613104, -164.0, 66.0, 169.0, '2010-12-11 03:28:45.830250', '2010-12-11 03:28:45.830250', '1/2/5', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.45395134940879855, -164.0, 0.0, 169.0, '2010-12-11 03:28:45.955250', '2010-12-11 03:28:45.955250', '1/2/5', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4610404882802995, -164.0, -38.0, 169.0, '2010-12-11 03:28:46.033375', '2010-12-11 03:28:46.033375', '1/2/5', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 2, "updated_at" = '2010-12-11 03:28:46.111500' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 641ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:29:00 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:29:18 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"11/09", "memory"=>"qweqwe", "screen_name"=>"rdwks", "status_id"=>"13435126486667264", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('qweqwe', 'rdwks', 13435126486667264, '2010-12-11 03:29:18.158375', '2010-12-11 03:29:18.158375', NULL, 11, 9, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 4) LIMIT 1
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1[0m
+branch.id
+3
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 5, "updated_at" = '2010-12-11 03:29:18.330250' WHERE ("branches"."id" = 3)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6569743610861892, -150.0, 47.0, 175.0, '2010-12-11 03:29:18.392750', '2010-12-11 03:29:18.392750', '1/3', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.8185348098702939, -150.0, 0.0, 175.0, '2010-12-11 03:29:18.486500', '2010-12-11 03:29:18.486500', '1/3', 2, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.8131735743393806, -150.0, -39.0, 175.0, '2010-12-11 03:29:18.564625', '2010-12-11 03:29:18.564625', '1/3', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 3, "updated_at" = '2010-12-11 03:29:18.892750' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 891ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:30:03 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:30:16 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/24", "memory"=>"qweqweqwddddddddddd", "screen_name"=>"rdwks", "status_id"=>"13435373589889024", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('qweqweqwddddddddddd', 'rdwks', 13435373589889024, '2010-12-11 03:30:16.970875', '2010-12-11 03:30:16.970875', NULL, 12, 24, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 4) LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "centerTweet" = 6, "currentTweet" = 0, "updated_at" = '2010-12-11 03:30:17.174000' WHERE ("treedatas"."id" = 1)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.7578753753616481, -102.0, 0.0, 166.0, '2010-12-11 03:30:17.236500', '2010-12-11 03:30:17.236500', '1/4', 2, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "centerbranch_id" = 14, "updated_at" = '2010-12-11 03:30:17.314625' WHERE ("treedatas"."id" = 1)[0m
+branch.id
+4
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 6, "updated_at" = '2010-12-11 03:30:17.470875' WHERE ("branches"."id" = 4)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5985106689852489, -102.0, 40.0, 103.0, '2010-12-11 03:30:17.564625', '2010-12-11 03:30:17.564625', '1/4', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6107169311812993, -102.0, 0.0, 103.0, '2010-12-11 03:30:17.642750', '2010-12-11 03:30:17.642750', '1/4', 2, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5813124761999494, -102.0, -56.0, 103.0, '2010-12-11 03:30:17.720875', '2010-12-11 03:30:17.720875', '1/4', 2, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 1, "updated_at" = '2010-12-11 03:30:17.783375' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 906ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:31:10 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:31:19 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/14", "memory"=>"rwerwegffffffffff", "screen_name"=>"rdwks", "status_id"=>"13435637294174208", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('rwerwegffffffffff', 'rdwks', 13435637294174208, '2010-12-11 03:31:19.892750', '2010-12-11 03:31:19.892750', NULL, 12, 14, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1[0m
+branch.id
+7
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 7, "updated_at" = '2010-12-11 03:31:20.064625' WHERE ("branches"."id" = 7)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5236881154608183, -164.0, 67.0, 165.0, '2010-12-11 03:31:20.142750', '2010-12-11 03:31:20.142750', '1/2/7', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5614705066619226, -164.0, 0.0, 165.0, '2010-12-11 03:31:20.220875', '2010-12-11 03:31:20.220875', '1/2/7', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5710924859058419, -164.0, -56.0, 165.0, '2010-12-11 03:31:20.283375', '2010-12-11 03:31:20.283375', '1/2/7', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 2, "updated_at" = '2010-12-11 03:31:20.377125' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 578ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:32:03 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:32:14 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/15", "memory"=>"35435453", "screen_name"=>"rdwks", "status_id"=>"13435865946660864", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('35435453', 'rdwks', 13435865946660864, '2010-12-11 03:32:14.408375', '2010-12-11 03:32:14.408375', NULL, 12, 15, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1[0m
+branch.id
+11
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 8, "updated_at" = '2010-12-11 03:32:14.580250' WHERE ("branches"."id" = 11)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5610111669900275, -175.0, 62.0, 153.0, '2010-12-11 03:32:14.658375', '2010-12-11 03:32:14.658375', '1/3/11', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5750410501907681, -175.0, 0.0, 153.0, '2010-12-11 03:32:14.736500', '2010-12-11 03:32:14.736500', '1/3/11', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.589019006627194, -175.0, -35.0, 153.0, '2010-12-11 03:32:14.814625', '2010-12-11 03:32:14.814625', '1/3/11', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 3, "updated_at" = '2010-12-11 03:32:14.908375' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 625ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:33:37 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:33:48 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:33:58 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:34:05 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:34:16 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:34:49 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 125ms (Views: 109.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:36:14 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:36:29 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:36:40 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:36:48 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:39:19 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:41:01 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:41:10 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/24", "memory"=>"123123123123", "screen_name"=>"rdwks", "status_id"=>"13438116928946176", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('123123123123', 'rdwks', 13438116928946176, '2010-12-11 03:41:11.017750', '2010-12-11 03:41:11.017750', NULL, 12, 24, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1
+branch.id
+13
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 9, "updated_at" = '2010-12-11 03:41:11.189625' WHERE ("branches"."id" = 13)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6030022781905526, -175.0, 57.0, 186.0, '2010-12-11 03:41:11.267750', '2010-12-11 03:41:11.267750', '1/3/13', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.7166038262776862, -175.0, 0.0, 186.0, '2010-12-11 03:41:11.361500', '2010-12-11 03:41:11.361500', '1/3/13', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6793746306382834, -175.0, -41.0, 186.0, '2010-12-11 03:41:11.424000', '2010-12-11 03:41:11.424000', '1/3/13', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 4, "updated_at" = '2010-12-11 03:41:11.486500' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 594ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:41:45 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:45:45 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:46:45 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/24", "memory"=>"rweggre", "screen_name"=>"rdwks", "status_id"=>"13439520091414528", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('rweggre', 'rdwks', 13439520091414528, '2010-12-11 03:46:45.627125', '2010-12-11 03:46:45.627125', NULL, 12, 24, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1
+branch.id
+24
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 10, "updated_at" = '2010-12-11 03:46:45.783375' WHERE ("branches"."id" = 24)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.432126020094072, -186.0, 32.0, 156.0, '2010-12-11 03:46:45.845875', '2010-12-11 03:46:45.845875', '1/3/13/24', 4, -1, 'f')
+  [1m[36mAREL (15.6ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4876220438546057, -186.0, 0.0, 156.0, '2010-12-11 03:46:45.924000', '2010-12-11 03:46:45.924000', '1/3/13/24', 4, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4882586541141836, -186.0, -61.0, 156.0, '2010-12-11 03:46:46.002125', '2010-12-11 03:46:46.002125', '1/3/13/24', 4, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 5, "updated_at" = '2010-12-11 03:46:46.080250' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 594ms (Views: 15.6ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:47:15 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 12:47:25 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/21", "memory"=>"ertowk;erk;or;we", "screen_name"=>"rdwks", "status_id"=>"13439688614350848", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('ertowk;erk;or;we', 'rdwks', 13439688614350848, '2010-12-11 03:47:25.908375', '2010-12-11 03:47:25.908375', NULL, 12, 21, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1[0m
+branch.id
+27
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 11, "updated_at" = '2010-12-11 03:47:26.064625' WHERE ("branches"."id" = 27)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.313596720096175, -156.0, 59.0, 145.0, '2010-12-11 03:47:26.142750', '2010-12-11 03:47:26.142750', '1/3/13/24/27', 5, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.36964439418636913, -156.0, 0.0, 145.0, '2010-12-11 03:47:26.252125', '2010-12-11 03:47:26.252125', '1/3/13/24/27', 5, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.3757203146948148, -156.0, -69.0, 145.0, '2010-12-11 03:47:26.345875', '2010-12-11 03:47:26.345875', '1/3/13/24/27', 5, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 6, "updated_at" = '2010-12-11 03:47:26.424000' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 656ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:48:30 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:48:46 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:49:18 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:49:34 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:52:57 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:53:26 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (15.6ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (46.9ms)
+Rendered tweets/index.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 109ms (Views: 93.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:54:16 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:54:35 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:54:43 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:55:42 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:56:10 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 125ms (Views: 109.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:56:21 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:57:50 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:58:36 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 12:58:44 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:02:34 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:02:57 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (78.1ms)
+Rendered tweets/index.html.erb within layouts/application (93.8ms)
+Completed 200 OK in 141ms (Views: 125.0ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:03:06 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/13", "memory"=>"werwerwerwew", "screen_name"=>"rdwks", "status_id"=>"13443635018207232", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('werwerwerwew', 'rdwks', 13443635018207232, '2010-12-11 04:03:06.642750', '2010-12-11 04:03:06.642750', NULL, 12, 13, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 14) LIMIT 1
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "centerTweet" = 12, "currentTweet" = 0, "updated_at" = '2010-12-11 04:03:06.799000' WHERE ("treedatas"."id" = 1)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.8431574959153296, -166.0, 0.0, 154.0, '2010-12-11 04:03:06.892750', '2010-12-11 04:03:06.892750', '1/4/14', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "centerbranch_id" = 33, "updated_at" = '2010-12-11 04:03:06.970875' WHERE ("treedatas"."id" = 1)[0m
+branch.id
+14
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 12, "updated_at" = '2010-12-11 04:03:07.049000' WHERE ("branches"."id" = 14)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.7034280655765273, -166.0, 49.0, 109.0, '2010-12-11 04:03:07.127125', '2010-12-11 04:03:07.127125', '1/4/14', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.6150089283400768, -166.0, 0.0, 109.0, '2010-12-11 04:03:07.205250', '2010-12-11 04:03:07.205250', '1/4/14', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.625001739303001, -166.0, -52.0, 109.0, '2010-12-11 04:03:07.267750', '2010-12-11 04:03:07.267750', '1/4/14', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 1, "updated_at" = '2010-12-11 04:03:07.345875' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 812ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:03:22 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:03:45 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (31.2ms)
+Rendered tweets/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:04:17 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:04:35 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:04:44 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39vuistFsTHQpSkDgEjhWsY8gWJyoSOATOoVARYll7E=", "date"=>"12/15", "memory"=>"werwerwer", "screen_name"=>"rdwks", "status_id"=>"13444044189339648", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('werwerwer', 'rdwks', 13444044189339648, '2010-12-11 04:04:44.189625', '2010-12-11 04:04:44.189625', NULL, 12, 15, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 33) LIMIT 1[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1
+branch.id
+15
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 13, "updated_at" = '2010-12-11 04:04:44.377125' WHERE ("branches"."id" = 15)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.443020637956909, -103.0, 30.0, 154.0, '2010-12-11 04:04:44.470875', '2010-12-11 04:04:44.470875', '1/4/15', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5084529696513955, -103.0, 0.0, 154.0, '2010-12-11 04:04:44.549000', '2010-12-11 04:04:44.549000', '1/4/15', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4970890442186825, -103.0, -65.0, 154.0, '2010-12-11 04:04:44.642750', '2010-12-11 04:04:44.642750', '1/4/15', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 2, "updated_at" = '2010-12-11 04:04:44.736500' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 750ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:05:16 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:05:35 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:05:40 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:05:51 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (15.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 125ms (Views: 109.4ms | ActiveRecord: 15.6ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:05:59 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zDaXRL9fUpkwgUdmwjA1ZJzNfzTLCn7Dt6eq9upll9E=", "date"=>"10/03", "memory"=>"werwefff", "screen_name"=>"rdwks", "status_id"=>"13444359059939328", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('werwefff', 'rdwks', 13444359059939328, '2010-12-11 04:05:59.267750', '2010-12-11 04:05:59.267750', NULL, 10, 3, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 33) LIMIT 1
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1[0m
+branch.id
+17
+  [1m[35mAREL (0.0ms)[0m  UPDATE "branches" SET "tweet_id" = 14, "updated_at" = '2010-12-11 04:05:59.439625' WHERE ("branches"."id" = 17)
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.5032960476167275, -103.0, 46.0, 182.0, '2010-12-11 04:05:59.517750', '2010-12-11 04:05:59.517750', '1/4/17', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4941685053563657, -103.0, 0.0, 182.0, '2010-12-11 04:05:59.611500', '2010-12-11 04:05:59.611500', '1/4/17', 3, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4856047441350584, -103.0, -34.0, 182.0, '2010-12-11 04:05:59.689625', '2010-12-11 04:05:59.689625', '1/4/17', 3, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  UPDATE "treedatas" SET "currentTweet" = 3, "updated_at" = '2010-12-11 04:05:59.767750' WHERE ("treedatas"."id" = 1)
+Completed 200 OK in 641ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:11:14 +0900
+  Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.0ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+Rendered tweets/_form.html.erb (31.2ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:11:52 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zDaXRL9fUpkwgUdmwjA1ZJzNfzTLCn7Dt6eq9upll9E=", "date"=>"12/02", "memory"=>"fwefwefwe", "screen_name"=>"rdwks", "status_id"=>"13445840337117184", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('fwefwefwe', 'rdwks', 13445840337117184, '2010-12-11 04:11:52.392750', '2010-12-11 04:11:52.392750', NULL, 12, 2, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)
+  [1m[36mTreedata Load (0.0ms)[0m  [1mSELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1[0m
+treedata.branch.descendants
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)[0m
+0
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE ("branches"."id" = 33) LIMIT 1
+branch.id
+32
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 15, "updated_at" = '2010-12-11 04:11:52.549000' WHERE ("branches"."id" = 32)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.3580728603155046, -145.0, 32.0, 164.0, '2010-12-11 04:11:52.627125', '2010-12-11 04:11:52.627125', '1/3/13/24/27/32', 6, -1, 'f')
+  [1m[36mAREL (15.6ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.326729422643078, -145.0, 0.0, 164.0, '2010-12-11 04:11:52.705250', '2010-12-11 04:11:52.705250', '1/3/13/24/27/32', 6, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.31911154595545765, -145.0, -56.0, 164.0, '2010-12-11 04:11:52.799000', '2010-12-11 04:11:52.799000', '1/3/13/24/27/32', 6, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 4, "updated_at" = '2010-12-11 04:11:52.892750' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 625ms (Views: 31.2ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:12:41 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:12:51 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zDaXRL9fUpkwgUdmwjA1ZJzNfzTLCn7Dt6eq9upll9E=", "date"=>"10/04", "memory"=>"qweqqqqqqqqqq", "screen_name"=>"rdwks", "status_id"=>"13446086400151552", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('qweqqqqqqqqqq', 'rdwks', 13446086400151552, '2010-12-11 04:12:51.158375', '2010-12-11 04:12:51.158375', NULL, 10, 4, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 33) LIMIT 1[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1
+branch.id
+8
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 16, "updated_at" = '2010-12-11 04:12:51.330250' WHERE ("branches"."id" = 8)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4281931439953552, -169.0, 35.0, 171.0, '2010-12-11 04:12:51.424000', '2010-12-11 04:12:51.424000', '1/2/5/8', 4, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.4560625681838839, -169.0, 0.0, 171.0, '2010-12-11 04:12:51.517750', '2010-12-11 04:12:51.517750', '1/2/5/8', 4, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.458445853937047, -169.0, -64.0, 171.0, '2010-12-11 04:12:51.580250', '2010-12-11 04:12:51.580250', '1/2/5/8', 4, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 5, "updated_at" = '2010-12-11 04:12:51.674000' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 656ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:13:34 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (15.6ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 109ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tweets.json" for 127.0.0.1 at 2010-12-11 13:13:48 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zDaXRL9fUpkwgUdmwjA1ZJzNfzTLCn7Dt6eq9upll9E=", "date"=>"10/04", "memory"=>"qweqqqqqqqqqqqqqqqqqqqqq", "screen_name"=>"rdwks", "status_id"=>"13446326280790016", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "tweets" ("title", "screen_name", "status_id", "created_at", "updated_at", "question_id", "month", "day", "pic", "category_id") VALUES ('qweqqqqqqqqqqqqqqqqqqqqq', 'rdwks', 13446326280790016, '2010-12-11 04:13:48.283375', '2010-12-11 04:13:48.283375', NULL, 10, 4, 'http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png', -1)[0m
+  [1m[35mTreedata Load (0.0ms)[0m  SELECT "treedatas".* FROM "treedatas" ORDER BY treedatas.id DESC LIMIT 1
+treedata.branch.descendants
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = '' AND rotation != 0)
+0
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM "branches" WHERE (id = 1 or ancestry like '1/%' or ancestry = '1')[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0)
+  [1m[36mBranch Load (0.0ms)[0m  [1mSELECT "branches".* FROM "branches" WHERE ("branches"."id" = 33) LIMIT 1[0m
+  [1m[35mBranch Load (0.0ms)[0m  SELECT "branches".* FROM "branches" WHERE (ancestry like '1/%' or ancestry = '1') AND (tweet_id = -1 AND rotation != 0) ORDER BY ancestry_depth ASC LIMIT 1
+branch.id
+10
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "branches" SET "tweet_id" = 17, "updated_at" = '2010-12-11 04:13:48.533375' WHERE ("branches"."id" = 10)[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.32987498695352985, -169.0, 38.0, 128.0, '2010-12-11 04:13:48.611500', '2010-12-11 04:13:48.611500', '1/2/5/10', 4, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mINSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.3718132352201132, -169.0, 0.0, 128.0, '2010-12-11 04:13:48.736500', '2010-12-11 04:13:48.736500', '1/2/5/10', 4, -1, 'f')[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.3826004779922102, -169.0, -42.0, 128.0, '2010-12-11 04:13:48.814625', '2010-12-11 04:13:48.814625', '1/2/5/10', 4, -1, 'f')
+  [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 6, "updated_at" = '2010-12-11 04:13:48.892750' WHERE ("treedatas"."id" = 1)[0m
+Completed 200 OK in 719ms (Views: 15.6ms | ActiveRecord: 0.0ms)

@@ -72,7 +72,8 @@
   </div>
 
 
-
+<div id="empty">
+</div>
 
 <!--
   <table id="mention_table">
@@ -138,18 +139,19 @@
           },
           finalFunc: function(data){
             // popup!
-            $(window).scrollTo({ top:800, left:0}, 800);
-            $(".dragWindow").show();
-            $(".dragWindow").draggable();
-
-            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
             
+            $(".dragWindow").show();
+            $("#empty").show();
+            $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
+            $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:600});
+            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
             var flashvars = {};
             var params = {};
             var attributes = {};
             attributes.id = "flashswfContent";
             swfobject.embedSWF("/swfs/Xmastree.swf", "flashContent", "700", "600", "10.0.0", false, flashvars, params, attributes);
             
+
             this.actionContainer.append(this.btn);
             this.wait.remove();
           },
@@ -229,10 +231,15 @@
           },
           finalFunc: function(data){
             // popup!
+            //$(".dragWindow").show();
+            
+            
             $(".dragWindow").show();
-            $(".dragWindow").draggable();
-
+            $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
+            $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:600});s
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+
+
             var flashvars = {};
             var params = {};
             var attributes = {};

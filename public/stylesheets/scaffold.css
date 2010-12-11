@@ -176,9 +176,6 @@ div.field, div.actions {
 {
   overflow-y: scroll;
   overflow-x: hidden;
-  height:250px;
-  width:200px;
-  position:absolute;
   z-index:10;
   background:#FFF;
 
@@ -188,10 +185,15 @@ div.field, div.actions {
 #tree_iframe
 {
   overflow:hidden;
-  height:600px;
-  width:700px;
-  position:absolute;
-  z-index:10;
   background:#FFF;
 
+}
+
+#empty
+{
+  position:absolute;
+  top:500px;
+  height:800px;
+  width:500px;
+  display:none;
 }
