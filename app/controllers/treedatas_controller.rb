@@ -23,8 +23,7 @@ class TreedatasController < ApplicationController
     rootElem.add_attribute('scale', root.scale)
     rootElem.add_attribute('rotation', root.rotation)
     rootElem.add_attribute('y', root.y)
-
-    recursiveGenerateXML(root, rootElem)
+   recursiveGenerateXML(root, rootElem)
 
     doc.root.add(rootElem)
     return doc
@@ -39,7 +38,7 @@ class TreedatasController < ApplicationController
         childElem.add_attribute('scale', children.scale)
         childElem.add_attribute('rotation', children.rotation)
         childElem.add_attribute('y', children.y)
-        begin
+       begin
           childElem.add_attribute("tweet_title", children.tweet.title)
           childElem.add_attribute("screen_name", children.tweet.screen_name)
           childElem.add_attribute("month", children.tweet.month)

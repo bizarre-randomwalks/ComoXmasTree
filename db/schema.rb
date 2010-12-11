@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209114245) do
+ActiveRecord::Schema.define(:version => 20101211010542) do
 
   create_table "branchconnections", :force => true do |t|
     t.integer  "brancher_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20101209114245) do
     t.string   "ancestry"
     t.integer  "ancestry_depth", :default => 0
     t.integer  "tweet_id",       :default => -1
+    t.boolean  "tweeted",        :default => false
   end
 
   add_index "branches", ["ancestry"], :name => "index_branches_on_ancestry"

@@ -22792,3 +22792,614 @@ Started GET "/" for 175.219.68.239 at 2010-12-11 08:04:12 +0900
 Rendered tweets/_form.html.erb (2.8ms)
 Rendered tweets/index.html.erb within layouts/application (9.1ms)
 Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:12:16 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.1ms)
+Rendered tweets/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 91ms (Views: 25.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 08:12:35 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"08/17", "memory"=>"werwerwerw", "screen_name"=>"rdwks", "status_id"=>"13370685996924928", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+Completed   in 91ms
+
+NoMethodError (undefined method `where' for 3:Fixnum):
+  app/controllers/tweets_controller.rb:127:in `treeSelect'
+  app/controllers/tweets_controller.rb:59:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:13:50 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.4ms)
+Rendered tweets/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 93ms (Views: 25.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 08:14:28 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"06/15", "memory"=>"werwerqweeeeeeeeee", "screen_name"=>"rdwks", "status_id"=>"13371158405578752", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+Completed   in 107ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 08:15:51 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 19ms (Views: 1.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:54:00 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (15.1ms)
+Rendered tweets/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 93ms (Views: 26.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:54:36 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.3ms)
+Rendered tweets/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:56:01 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.1ms)
+Rendered tweets/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 94ms (Views: 25.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 08:56:37 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"09/14", "memory"=>"ㅂㅈㄷㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍㅍ", "screen_name"=>"rdwks", "status_id"=>"13381766505046016", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+Completed   in 414ms
+
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (2 for 1) in: tweet_id = ?):
+  app/controllers/tweets_controller.rb:127:in `treeSelect'
+  app/controllers/tweets_controller.rb:59:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 08:57:33 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.9ms)
+Rendered tweets/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 93ms (Views: 26.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 08:57:55 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"10/13", "memory"=>"ffffffffffffffwwwwwwwwwwwww", "screen_name"=>"rdwks", "status_id"=>"13382092154998784", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+Completed   in 107ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:00:18 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (15.1ms)
+Rendered tweets/index.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 92ms (Views: 26.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:00:41 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:00:53 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.1ms)
+Rendered tweets/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 09:01:17 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"08/17", "memory"=>"qweqweqweqwrrrrw", "screen_name"=>"rdwks", "status_id"=>"13382942432690176", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+Completed   in 122ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:02:20 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 20ms (Views: 1.8ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:03:20 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 103ms (Views: 2.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:03:27 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:03:28 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:05:26 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 45ms (Views: 0.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:06:00 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 103ms (Views: 1.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:06:03 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:09:49 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 103ms (Views: 2.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/tweets/tweetlist" for 66.249.67.129 at 2010-12-11 09:13:50 +0900
+  Processing by TweetsController#tweetlist as */*
+Rendered tweets/tweetlist.html.erb within layouts/list (13.9ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:19:06 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 44ms (Views: 0.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:19:58 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (2.7ms)
+Rendered tweets/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:26:21 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (13.9ms)
+Rendered tweets/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 95ms (Views: 24.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:26:21 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 103ms (Views: 1.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:26:37 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (12.3ms)
+Rendered tweets/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 09:26:47 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"10/10", "memory"=>"qweqwe", "screen_name"=>"rdwks", "status_id"=>"13389360959332352", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+1
+branch.id
+Completed   in 68ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:28:18 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (64.8ms)
+Rendered tweets/index.html.erb within layouts/application (72.9ms)
+Completed 200 OK in 163ms (Views: 78.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:28:30 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 09:28:42 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"07/04", "memory"=>"werewrrrrrrrrrrrrrrrrrrreeeeeeeeeeeeee", "screen_name"=>"rdwks", "status_id"=>"13389844235423744", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+Completed   in 85ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:31:40 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (65.5ms)
+Rendered tweets/index.html.erb within layouts/application (73.9ms)
+Completed 200 OK in 161ms (Views: 79.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:32:58 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (65.0ms)
+Rendered tweets/index.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 162ms (Views: 78.4ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 09:33:43 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"08/09", "memory"=>"fqefqweqweweeeeeeeeeeeeeeeeeeeeee", "screen_name"=>"rdwks", "status_id"=>"13391102396604416", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+
+branch.id
+Completed   in 65ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:33:52 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.7ms)
+Rendered tweets/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 09:35:47 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 278ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:35:47 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:35:51 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.1ms)
+Rendered tweets/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:39:04 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 55ms (Views: 2.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 09:39:13 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 56ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:39:14 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:39:18 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:39:30 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:39:33 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas" for 175.219.68.239 at 2010-12-11 09:41:21 +0900
+  Processing by TreedatasController#index as HTML
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:41:38 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 174ms (Views: 2.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:40 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 09:48:45 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 78ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:48:45 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:47 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:48:49 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:54 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:58 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:59 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:48:59 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 09:49:04 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 60ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:49:04 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:49:06 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:49:09 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:49:10 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:50:44 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 176ms (Views: 2.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:50:44 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 175ms (Views: 2.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:51:24 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:51:26 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:51:28 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 09:52:19 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 173ms (Views: 1.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/branches/init" for 175.219.68.239 at 2010-12-11 09:57:17 +0900
+  Processing by BranchesController#init as HTML
+Redirected to http://xmastree.randomwalks.org/branches
+Completed 302 Found in 276ms
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:57:18 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/branches" for 175.219.68.239 at 2010-12-11 09:58:19 +0900
+  Processing by BranchesController#index as HTML
+Rendered branches/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 09:58:20 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (12.4ms)
+Rendered tweets/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 09:58:41 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"07/11", "memory"=>"kopkeqwpjepqwoejwlkd", "screen_name"=>"rdwks", "status_id"=>"13397385661128704", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+branch null
+branch.id
+Completed   in 29ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 10:00:48 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (69.9ms)
+Rendered tweets/index.html.erb within layouts/application (78.5ms)
+Completed 200 OK in 167ms (Views: 84.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 10:01:05 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"07/19", "memory"=>"kfjwlefjwelfjilwefilwelfwe", "screen_name"=>"rdwks", "status_id"=>"13397992216207360", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+Completed   in 74ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:127:in `treeSelect'
+  app/controllers/tweets_controller.rb:59:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 10:02:53 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.5ms)
+Rendered tweets/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 94ms (Views: 25.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 10:04:23 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.6ms)
+Rendered tweets/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 10:04:36 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"08/19", "memory"=>"84646868486", "screen_name"=>"rdwks", "status_id"=>"13398877335986176", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+Completed   in 115ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/tweets_controller.rb:61:in `block in create'
+  app/controllers/tweets_controller.rb:54:in `create'
+
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 10:07:43 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 111ms (Views: 2.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 175.219.68.239 at 2010-12-11 10:08:55 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (16.5ms)
+Rendered tweets/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 95ms (Views: 28.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/tweets.json" for 175.219.68.239 at 2010-12-11 10:09:40 +0900
+  Processing by TweetsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RR1eDudy9DW8PySvo77AoJyRC4iNy9GkPpXE0xDuum4=", "date"=>"11/19", "memory"=>"dqweqweqwdqwddddddddddddddd", "screen_name"=>"rdwks", "status_id"=>"13400153574608896", "pic"=>"http://s.twimg.com/a/1291318259/images/default_profile_0_normal.png"}
+treedata.branch.descendants
+0
+branch.id
+48
+Completed 200 OK in 155ms (Views: 2.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/tweets/tweetlist" for 175.219.68.239 at 2010-12-11 10:09:41 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (2.6ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292029828174" for 175.219.68.239 at 2010-12-11 10:09:48 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292029828174"}
+Rendered categories/index.xml.builder (41.2ms)
+Completed 200 OK in 48ms (Views: 44.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories.xml" for 175.219.68.239 at 2010-12-11 10:09:49 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.6ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292029828175" for 175.219.68.239 at 2010-12-11 10:09:49 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292029828175"}
+Completed 200 OK in 67ms (Views: 0.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 10:09:49 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 10:10:01 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 10:10:11 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/treedatas.xml" for 175.219.68.239 at 2010-12-11 10:10:22 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 2.5ms)
