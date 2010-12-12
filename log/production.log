@@ -64999,3 +64999,30 @@ Started GET "/xMas_timeline.jar" for 211.246.28.6 at 2010-12-13 07:00:55 +0900
 ActionController::RoutingError (No route matches "/xMas_timeline.jar"):
   
 
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 07:02:43 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.6ms)
+Rendered tweets/index.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 97ms (Views: 27.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/tweets/tweetlist" for 211.246.28.6 at 2010-12-13 07:03:00 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (3.7ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/categories.xml?gsCacheBusterID=1292191455078&purpose=audit" for 211.246.28.6 at 2010-12-13 07:03:00 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292191455078", "purpose"=>"audit"}
+Rendered categories/index.xml.builder (42.9ms)
+Completed 200 OK in 86ms (Views: 46.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/crossdomain.xml" for 211.246.28.6 at 2010-12-13 07:05:02 +0900
+
+ActionController::RoutingError (No route matches "/crossdomain.xml"):
+  
+
