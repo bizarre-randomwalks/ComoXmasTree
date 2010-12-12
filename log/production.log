@@ -64816,3 +64816,17 @@ Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 24.9ms)
 Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:48:43 +0900
   Processing by TreedatasController#index as XML
 Completed 200 OK in 247ms (Views: 0.3ms | ActiveRecord: 25.7ms)
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 06:51:52 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.5ms)
+Rendered tweets/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 95ms (Views: 26.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 06:52:15 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 1.4ms)
