@@ -1101,3 +1101,11 @@ branch.id
   [1m[35mAREL (0.0ms)[0m  INSERT INTO "branches" ("scale", "y", "rotation", "length", "created_at", "updated_at", "ancestry", "ancestry_depth", "tweet_id", "tweeted") VALUES (0.3826004779922102, -169.0, -42.0, 128.0, '2010-12-11 04:13:48.814625', '2010-12-11 04:13:48.814625', '1/2/5/10', 4, -1, 'f')
   [1m[36mAREL (0.0ms)[0m  [1mUPDATE "treedatas" SET "currentTweet" = 6, "updated_at" = '2010-12-11 04:13:48.892750' WHERE ("treedatas"."id" = 1)[0m
 Completed 200 OK in 719ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-12-11 13:27:03 +0900
+  Processing by TweetsController#index as HTML
+  [1m[35mTweet Load (0.0ms)[0m  SELECT "tweets".* FROM "tweets"
+Rendered tweets/_form.html.erb (0.0ms)
+Rendered tweets/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 94ms (Views: 62.5ms | ActiveRecord: 0.0ms)
