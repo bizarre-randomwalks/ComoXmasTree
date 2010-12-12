@@ -28,37 +28,34 @@
 </div>
 
 <div id="howto">
-  
-  <div style="margin-bottom:10px;font-size:0.8em;font-weight:bold;line-height:13px">
-    <div id="window_01" class="windowst">
+  <div style="position:relative">
+    <div style="position:absolute;bottom:0;left:0;width:100px;float:left;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+      <div id="window_01" class="windowst">
+      </div>
+      Window 01 : <br/>Holiday Tree
     </div>
-    Window 01 : <br/>Holiday Tree
-  </div>
 
-  <div style="margin-bottom:10px;font-size:0.8em;font-weight:bold;line-height:13px">
-    <div id="window_02" class="windowst">
+    <div style="position:absolute;bottom:0;left:100px;width:100px;float:left;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+      <div id="window_02" class="windowst">
+      </div>
+      Window 02 : <br/>Timeline
     </div>
-    Window 02 : <br/>Timeline
-  </div>
-
-  
-  <div style="margin-bottom:10px;font-size:0.8em;font-weight:bold;line-height:13px">
-    <div id="window_03" class="windowst">
+   
+    <div style="position:absolute;bottom:0;float:left;width:100px;left:300px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+      <div id="window_03" class="windowst">
+      </div>
+      Window 03 : <br/>Lists
     </div>
-    Window 03 : <br/>2010 Parades
+    <div style="clear:both"></div>
   </div>
-
-  
-  <div style="margin-bottom:10px;font-size:0.8em;font-weight:bold;line-height:13px">
-    <div id="window_03" class="windowst">
-    </div>
-    Window 04 : <br/>Lists
-  </div>
-
 </div>
 <div id="rwlogo">
   <%= link_to  image_tag('rw_logo.jpg'), 'http://randomwalks.org' %>
 </div>
+  <div id="timeline_iframe" class="dragWindow">
+    <div id="timelineContent">
+    </div>
+  </div>
 
   <div id="tweet_list_iframe" class="dragWindow">
     <div id="listContent">
@@ -101,8 +98,25 @@
 <script type="text/javascript">
   $(document).ready(function(e){
     $("#date").datepicker({ dateFormat: "mm/dd", minDate: new Date(2010, 0, 1), maxDate: new Date(2010, 11, 31) });
-    
-            $(".dragWindow").hide();
+    $(".dragWindow").hide();
+    $("#seeResult").click(function(e){
+      e.preventDefault();
+      $(".dragWindow").show();
+      $("#empty").show();
+      $("#tweet_list_iframe").dialog({resizable:false, position:[200, 'bottom'], width:200, height:350});
+      $("#tree_iframe").dialog({resizable:false, position:[430, 'bottom'], width:700, height:600});
+
+      $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+      $("#timeline_iframe").dialog({resizable:false, position:[430, 'top'], width:1000, height:100});
+      $("#timeline_iframe").load("http://xmastree.randomwalks.org/applet/timeline.html");
+      
+      var flashvars = {};
+      var params = {};
+      var attributes = {};
+      attributes.id = "flashswfContent";
+      swfobject.embedSWF("/swfs/Xmastree.swf", "flashContent", "700", "600", "10.0.0", false, flashvars, params, attributes);
+
+    });
     
   });
 
@@ -147,6 +161,8 @@
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:600});
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+            $("#timeline_iframe").dialog({resizable:false, position:[430, 'top'], width:1000, height:100});
+            $("#timeline_iframe").load("http://xmastree.randomwalks.org/applet/timeline.html");
             var flashvars = {};
             var params = {};
             var attributes = {};
@@ -240,6 +256,8 @@
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:600});
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+            $("#timeline_iframe").dialog({resizable:false, position:[430, 'top'], width:1000, height:100});
+            $("#timeline_iframe").load("http://xmastree.randomwalks.org/applet/timeline.html");
 
 
             var flashvars = {};
