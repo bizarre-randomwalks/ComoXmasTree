@@ -64830,3 +64830,124 @@ Started GET "/" for 211.246.28.6 at 2010-12-13 06:52:15 +0900
 Rendered tweets/_form.html.erb (1.2ms)
 Rendered tweets/index.html.erb within layouts/application (4.6ms)
 Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 06:53:44 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.7ms)
+Rendered tweets/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 99ms (Views: 28.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 06:54:06 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.6ms)
+Rendered tweets/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 211.246.28.6 at 2010-12-13 06:55:32 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.7ms)
+Rendered tweets/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 95ms (Views: 26.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/tweets/tweetlist" for 211.246.28.6 at 2010-12-13 06:55:45 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (2.9ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292191018234" for 211.246.28.6 at 2010-12-13 06:55:45 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292191018234"}
+Rendered categories/index.xml.builder (42.2ms)
+Completed 200 OK in 81ms (Views: 45.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml" for 211.246.28.6 at 2010-12-13 06:55:46 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292191018235" for 211.246.28.6 at 2010-12-13 06:55:48 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292191018235"}
+Completed 200 OK in 247ms (Views: 0.8ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:55:49 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:56:01 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 216ms (Views: 0.2ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:56:13 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 26.2ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:56:26 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.3ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:56:36 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:56:47 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:57:05 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:57:20 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:57:34 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 208ms (Views: 0.2ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:57:45 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.3ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:57:56 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 244ms (Views: 0.2ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:58:07 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 224ms (Views: 0.2ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:58:18 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 54.7ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:58:30 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 229ms (Views: 0.2ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/treedatas.xml" for 211.246.28.6 at 2010-12-13 06:58:41 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 24.2ms)
