@@ -1,16 +1,13 @@
 
-<div id="tweetlists" style="width:250px">
+<div id="tweetlists" style="width:100px">
 <% @tweets.each do |tweet| %>
-  <div class="tweet_list">
+  <div class="tweet_list" style="width:100px">
   <%= tweet.title %> 
-    <div class="tweet_screenName">
-    @<%= tweet.screen_name %>
-    </div>
-  </div>
+ </div>
   <% if @tweets.last != tweet %>
-    <div class="and">
-      <b> & </b> 
-    </div>
+    <span class="and" style="display:inline">
+      <b>&</b> 
+    </span>
   <% end %>
 <% end %>
 </div>

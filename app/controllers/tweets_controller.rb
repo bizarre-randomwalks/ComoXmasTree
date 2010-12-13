@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
     @tweet = Tweet.new
     respond_to do |format|
       format.html
@@ -10,7 +9,7 @@ class TweetsController < ApplicationController
   end
 
   def tweetlist
-    @tweets = Tweet.all
+    @tweets = Tweet.order('created_at DESC')
     respond_to do |format|
       format.html {render :layout => 'list'}
     end
