@@ -20,6 +20,7 @@
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
 	border-radius:4px;
+  z-index:9999;
 }
 
 .pointyTip,.pointyTipShadow{
