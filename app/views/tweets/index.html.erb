@@ -46,24 +46,24 @@
     <div style="position:absolute;bottom:0;left:0;width:100px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_01" class="windowst">
       </div>
-      Window 01 : <br/>Holiday Tree
+      <a href="#" title="사람들의 2010년 사건 사고가 트리가 되어 한 해를 마무리한다. 실시간으로 사람들의 트윗을 달고 커나가는 트리는 좋았던 일과 안 좋았던 일을 분류하여 두 가지의 색으로 나타낸다.">Window 01 : <br/>Holiday Tree</a>
     </div>
 
     <div style="position:absolute;bottom:0;left:100px;width:100px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_02" class="windowst">
       </div>
-      Window 02 : <br/>Timeline
+       <a href="#" title="개인의 기억은 무의식 속에서 일어나는 분류와 여과 과정을 통해서 재정의 된다. 사람들의 기억에서만 존재하는 '순간'들에 의한 2010년 타임라인은 기억의 순간이 많을 수록 정신적 뿐만 아니라 시각적으로도 두드러진다.">Window 02 : <br/>Timeline</a>
     </div>
     <div style="position:absolute;bottom:0;width:100px;left:200px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_03" class="windowst">
       </div>
-      Window 03 : <br/>Picture
+       <a href="#" title="">Window 03 : <br/>Picture</a>
     </div>
    
     <div style="position:absolute;bottom:0;width:100px;left:300px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_04" class="windowst">
       </div>
-      Window 04 : <br/>Lists
+       <a href="#" title="일어난 일을 중심으로 하여 이야기를 나열한다.">Window 04 : <br/>Lists</a>
     </div>
     
   </div>
@@ -94,6 +94,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(e){
+    $('[title]').colorTip({color:'black'});
+
     $("#date").datepicker({ dateFormat: "mm/dd", minDate: new Date(2010, 0, 1), maxDate: new Date(2010, 11, 31) });
     $(".dragWindow").hide();
     $("#seeResult").click(function(e){
@@ -164,10 +166,12 @@
             $("#empty").show();
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
-            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");  window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+              $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+            var tops = $(window).height() - 120;
+            tops += '';
+           window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
             window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
-     
-     
+           
             var flashvars = {};
             var params = {};
             var attributes = {};
@@ -247,9 +251,12 @@
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
 
-            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");  window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0"); window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
-     
-     
+             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+              var tops = $(window).height() - 120;
+              tops += '';
+             window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
+              window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+             
 
             var flashvars = {};
             var params = {};
