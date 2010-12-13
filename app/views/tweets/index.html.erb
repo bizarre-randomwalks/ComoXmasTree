@@ -108,20 +108,23 @@
     $(".dragWindow").hide();
     $("#seeResult").click(function(e){
       e.preventDefault();
-      $("#container").animate({
-        y: -800
-      }, 800);
 
       $(".dragWindow").show();
       $("#empty").show();
-      $("#tweet_list_iframe").dialog({resizable:false, position:[200, $(window).height() - 120 - 350], width:200, height:350});
-      $("#tree_iframe").dialog({resizable:false, position:[430, $(window).height() - 120 - 620], width:700, height:620});
+      $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width - 200, $(window).height() - 120 - 350], width:200, height:350});
+      $("#tree_iframe").dialog({resizable:false, position:[$(window).width - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
 
       $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
       var tops = $(window).height() - 120;
       tops += '';
-     window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
-      window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+      
+      var profileTop = $(window).width - 200 - 700 - 200;
+      profileTop += '';
+      var profileLeft = $(window).height() - 120 - 620 - 200;
+      profileLeft += '';
+
+      window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
+      window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left="+profileLeft+",top=" + profileTop);
      
       var flashvars = {};
       var params = {};
@@ -171,16 +174,23 @@
           },
           finalFunc: function(data){
             // popup!
-            
+          
             $(".dragWindow").show();
             $("#empty").show();
-            $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
-            $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
-              $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width - 200, $(window).height() - 120 - 350], width:200, height:350});
+            $("#tree_iframe").dialog({resizable:false, position:[$(window).width - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
+
+            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
             var tops = $(window).height() - 120;
             tops += '';
-           window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
-            window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+            
+            var profileTop = $(window).width - 200 - 700 - 200;
+            profileTop += '';
+            var profileLeft = $(window).height() - 120 - 620 - 200;
+            profileLeft += '';
+
+            window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
+            window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left="+profileLeft+",top=" + profileTop);
            
             var flashvars = {};
             var params = {};
@@ -257,16 +267,24 @@
             //$(".dragWindow").show();
             
             
+            
             $(".dragWindow").show();
-            $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
-            $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
+            $("#empty").show();
+            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width - 200, $(window).height() - 120 - 350], width:200, height:350});
+            $("#tree_iframe").dialog({resizable:false, position:[$(window).width - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
 
-             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
-              var tops = $(window).height() - 120;
-              tops += '';
-             window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
-              window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
-             
+            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
+            var tops = $(window).height() - 120;
+            tops += '';
+            
+            var profileTop = $(window).width - 200 - 700 - 200;
+            profileTop += '';
+            var profileLeft = $(window).height() - 120 - 620 - 200;
+            profileLeft += '';
+
+            window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
+            window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left="+profileLeft+",top=" + profileTop);
+           
 
             var flashvars = {};
             var params = {};
