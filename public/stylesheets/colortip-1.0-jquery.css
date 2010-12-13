@@ -4,7 +4,7 @@
 	display:none;
 	position:absolute;	
 	left:50%;
-	top:-30px;
+	top:-100px;
 	padding:6px;
 	
 	background-color:white;
@@ -13,7 +13,7 @@
 	font-style:normal;
 	line-height:1;
 	text-decoration:none;
-	text-align:center;
+  line-height:160%;
 	text-shadow:0 0 1px white;
 	white-space:nowrap;
 	
