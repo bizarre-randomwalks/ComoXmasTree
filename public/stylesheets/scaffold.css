@@ -214,3 +214,10 @@ div.field, div.actions {
   width:500px;
   display:none;
 }
+
+#signout
+{
+  margin-left:10px;
+  float:left;
+  display:none;
+}

@@ -24,7 +24,9 @@
 </div>
 
 <div id="form_render">
-  <div id="login"></div>
+  <div id="login" style="float:left"></div>
+  <div id="signout"><a href="#" id="signout_btn">signout</a></div>
+  <div style="clear:both"></div>
   <%= render 'form' %>
 </div>
 
@@ -94,6 +96,12 @@
 
 <script type="text/javascript">
   $(document).ready(function(e){
+     $("#signout_btn").live("click", function(e){
+       e.preventDefault();
+       twttr.anywhere.signOut();
+    });
+
+  
     $('[title]').colorTip({color:'black'});
 
     $("#date").datepicker({ dateFormat: "mm/dd", minDate: new Date(2010, 0, 1), maxDate: new Date(2010, 11, 31) });
@@ -127,8 +135,10 @@
 
   twttr.anywhere(function (T) {
     T.hovercards();
+    
     if (T.isConnected())
     {
+        $("#signout").show();
         $(".calendar").fadeIn();
         $("#date").attr("disabled", false);
         $("#memory").attr("disabled", false);
@@ -210,7 +220,7 @@
     }
 
     T.bind("authComplete", function (e, user) {
- 
+        $("#signout").show();
         $(".calendar").fadeIn();
         $("#date").attr("disabled", false);
         $("#memory").attr("disabled", false);
@@ -303,10 +313,11 @@
           }
         };
 
-        $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
+           $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
     });
 
     T.bind("signOut", function (e) {
+      $("#signout").hide()
     });
 
   });
