@@ -68778,3 +68778,1648 @@ Completed 200 OK in 216ms (Views: 0.2ms | ActiveRecord: 54.9ms)
 Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:45:12 +0900
   Processing by TreedatasController#index as XML
 Completed 200 OK in 206ms (Views: 0.2ms | ActiveRecord: 51.6ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 16:52:05 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.3ms)
+Rendered tweets/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 16:53:39 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (7.3ms)
+Completed 200 OK in 72ms (Views: 7.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292226897109" for 175.221.202.94 at 2010-12-13 16:53:41 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292226897109"}
+Rendered categories/index.xml.builder (73.3ms)
+Completed 200 OK in 82ms (Views: 76.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 16:53:41 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (4.2ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 16:53:41 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 16:53:41 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292226897110" for 175.221.202.94 at 2010-12-13 16:53:42 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292226897110"}
+Completed 200 OK in 258ms (Views: 0.9ms | ActiveRecord: 60.0ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 16:53:42 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (38.6ms)
+Completed 200 OK in 104ms (Views: 41.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:53:43 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 304ms (Views: 0.8ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 16:53:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 16:53:45 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 16:53:45 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (5.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 16:53:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.7ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 16:53:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (4.0ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 16:53:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (1.8ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 175.221.202.94 at 2010-12-13 16:53:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.1ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 175.221.202.94 at 2010-12-13 16:53:48 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 175.221.202.94 at 2010-12-13 16:53:48 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:53:56 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 250ms (Views: 0.3ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 16:53:56 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (29.7ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
+    2: xml.tweets do
+    3:   @tweets.each do |tweet|
+    4:     xml.tweet do 
+    5:       xml.title(tweet.title)
+    6:       xml.screen_name(tweet.screen_name)
+  app/views/tweets/index.xml.builder:3:in `block in _app_views_tweets_index_xml_builder__1023249772159902629_29219040_2399160361603332478'
+  app/views/tweets/index.xml.builder:2:in `_app_views_tweets_index_xml_builder__1023249772159902629_29219040_2399160361603332478'
+  app/controllers/tweets_controller.rb:5:in `index'
+
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:54:08 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 208ms (Views: 0.3ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:54:19 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 218ms (Views: 0.3ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:54:30 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 249ms (Views: 0.2ms | ActiveRecord: 59.2ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:54:41 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 212ms (Views: 0.3ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:54:52 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 218ms (Views: 0.3ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 16:55:02 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (0.4ms)
+Completed   in 1ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
+    2: xml.tweets do
+    3:   @tweets.each do |tweet|
+    4:     xml.tweet do 
+    5:       xml.title(tweet.title)
+    6:       xml.screen_name(tweet.screen_name)
+  app/views/tweets/index.xml.builder:3:in `block in _app_views_tweets_index_xml_builder__1023249772159902629_29219040_2399160361603332478'
+  app/views/tweets/index.xml.builder:2:in `_app_views_tweets_index_xml_builder__1023249772159902629_29219040_2399160361603332478'
+  app/controllers/tweets_controller.rb:5:in `index'
+
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:55:03 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 246ms (Views: 0.3ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 16:56:01 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (13.6ms)
+Rendered tweets/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 89ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 16:56:59 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (21.3ms)
+Completed 200 OK in 92ms (Views: 22.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/categories.xml?gsCacheBusterID=1292227091171&purpose=audit" for 175.221.202.94 at 2010-12-13 16:56:59 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292227091171", "purpose"=>"audit"}
+Rendered categories/index.xml.builder (45.9ms)
+Completed 200 OK in 125ms (Views: 50.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 16:56:59 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (39.8ms)
+Completed 200 OK in 110ms (Views: 42.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 16:57:00 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (111.3ms)
+Completed 200 OK in 185ms (Views: 113.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 16:57:00 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (4.3ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 16:57:00 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (10.6ms)
+Completed 200 OK in 19ms (Views: 13.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 16:57:00 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 16:57:01 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/treedatas.xml?gsCacheBusterID=1292227091172&purpose=audit" for 175.221.202.94 at 2010-12-13 16:57:01 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292227091172", "purpose"=>"audit"}
+Completed 200 OK in 254ms (Views: 0.9ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 16:57:01 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (2.6ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 16:57:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (20.5ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:57:01 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 253ms (Views: 0.3ms | ActiveRecord: 29.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 16:57:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 16:57:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (3.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 16:57:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 175.221.202.94 at 2010-12-13 16:57:03 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.0ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 175.221.202.94 at 2010-12-13 16:57:03 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 175.221.202.94 at 2010-12-13 16:57:04 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:57:13 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:57:24 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 23.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 16:57:36 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 227ms (Views: 0.2ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 16:59:41 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.8ms)
+Rendered tweets/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 92ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:00:04 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (6.8ms)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?gsCacheBusterID=1292227279656&purpose=audit" for 175.221.202.94 at 2010-12-13 17:00:04 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292227279656", "purpose"=>"audit"}
+Rendered categories/index.xml.builder (76.4ms)
+Completed 200 OK in 85ms (Views: 79.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:00:05 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.7ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/treedatas.xml?gsCacheBusterID=1292227279657&purpose=audit" for 175.221.202.94 at 2010-12-13 17:00:05 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292227279657", "purpose"=>"audit"}
+Completed 200 OK in 269ms (Views: 1.0ms | ActiveRecord: 29.0ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:00:06 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (39.5ms)
+Completed 200 OK in 108ms (Views: 42.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:00:06 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (109.9ms)
+Completed 200 OK in 182ms (Views: 111.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:00:06 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.8ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:00:06 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 263ms (Views: 0.8ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:00:06 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:00:07 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:00:07 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:00:07 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (1.4ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:00:07 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.6ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 17:00:08 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (35.2ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 17:00:08 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (2.0ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 175.221.202.94 at 2010-12-13 17:00:08 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.4ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 175.221.202.94 at 2010-12-13 17:00:08 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 175.221.202.94 at 2010-12-13 17:00:09 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:00:18 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:00:29 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 222ms (Views: 0.2ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:00:40 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:00:50 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 219ms (Views: 0.2ms | ActiveRecord: 55.8ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:01:01 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:01:15 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (23.0ms)
+Completed 200 OK in 94ms (Views: 23.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:01:15 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 364ms (Views: 2.1ms | ActiveRecord: 30.4ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:01:46 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (6.6ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292227382062" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292227382062"}
+Rendered categories/index.xml.builder (34.8ms)
+Completed 200 OK in 42ms (Views: 37.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (59.1ms)
+Completed 200 OK in 61ms (Views: 58.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.7ms)
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292227382063" for 175.221.202.94 at 2010-12-13 17:01:47 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292227382063"}
+Completed 200 OK in 208ms (Views: 0.3ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:01:48 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:01:48 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:01:48 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 211ms (Views: 0.3ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:01:48 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (34.9ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:01:49 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (5.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:01:49 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 17:01:49 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (5.6ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 17:01:50 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (1.8ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 175.221.202.94 at 2010-12-13 17:01:50 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 175.221.202.94 at 2010-12-13 17:01:50 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.8ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 175.221.202.94 at 2010-12-13 17:01:51 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:02:00 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 297ms (Views: 0.9ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:02:11 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 210ms (Views: 0.2ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:02:21 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:03:01 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (3.0ms)
+Rendered tweets/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:04:49 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:05:15 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (61.6ms)
+Completed 200 OK in 63ms (Views: 61.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:06:04 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.2ms)
+Rendered tweets/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 119ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:11:18 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (98.7ms)
+Completed 200 OK in 102ms (Views: 99.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:12:39 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (15.3ms)
+Rendered tweets/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 93ms (Views: 26.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:12:57 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (7.0ms)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292228054687" for 175.221.202.94 at 2010-12-13 17:12:58 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228054687"}
+Rendered categories/index.xml.builder (76.6ms)
+Completed 200 OK in 85ms (Views: 80.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:12:59 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:12:59 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (4.2ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:12:59 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (31.9ms)
+Completed 200 OK in 34ms (Views: 31.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292228054688" for 175.221.202.94 at 2010-12-13 17:12:59 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228054688"}
+Completed 200 OK in 283ms (Views: 0.9ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:13:00 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (38.4ms)
+Completed 200 OK in 104ms (Views: 41.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:13:00 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:13:00 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 302ms (Views: 0.9ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:13:01 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.8ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:13:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:13:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (5.1ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:13:02 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:14:39 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (28.6ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:18:04 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.5ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:18:25 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (25.0ms)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:20:58 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.4ms)
+Rendered tweets/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 90ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:21:06 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (95.3ms)
+Completed 200 OK in 99ms (Views: 96.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:21:13 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (7.8ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292228549796" for 175.221.202.94 at 2010-12-13 17:21:13 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228549796"}
+Rendered categories/index.xml.builder (8.9ms)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:21:14 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292228549797" for 175.221.202.94 at 2010-12-13 17:21:14 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228549797"}
+Completed 200 OK in 283ms (Views: 0.8ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (3.9ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 227ms (Views: 0.3ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (108.0ms)
+Completed 200 OK in 178ms (Views: 109.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:21:15 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (4.4ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:21:16 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:21:16 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (1.5ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:21:16 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.7ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 17:21:16 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (3.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 17:21:17 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 175.221.202.94 at 2010-12-13 17:21:17 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (10.1ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 175.221.202.94 at 2010-12-13 17:21:17 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 175.221.202.94 at 2010-12-13 17:21:18 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.2ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:21:27 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 294ms (Views: 0.9ms | ActiveRecord: 59.6ms)
+
+
+Started GET "/" for 210.104.44.66 at 2010-12-13 17:22:24 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (2.9ms)
+Rendered tweets/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 210.104.44.66 at 2010-12-13 17:22:31 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (6.6ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292228628656" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228628656"}
+Rendered categories/index.xml.builder (3.5ms)
+Completed 200 OK in 10ms (Views: 5.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories.xml" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tweets.xml" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (61.6ms)
+Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292228628657" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228628657"}
+Completed 200 OK in 263ms (Views: 0.4ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (38.4ms)
+Completed 200 OK in 106ms (Views: 40.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (19.0ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (4.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (36.6ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 210.104.44.66 at 2010-12-13 17:22:33 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (2.3ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 210.104.44.66 at 2010-12-13 17:22:33 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.1ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/treedatas.xml" for 210.104.44.66 at 2010-12-13 17:22:32 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 57.9ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 210.104.44.66 at 2010-12-13 17:22:33 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.8ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 210.104.44.66 at 2010-12-13 17:22:33 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.7ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 210.104.44.66 at 2010-12-13 17:22:42 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 210.104.44.66 at 2010-12-13 17:22:45 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (4.3ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.5ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/tweets.xml" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (28.2ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories.xml?gsCacheBusterID=1292228642578&purpose=audit" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292228642578", "purpose"=>"audit"}
+Rendered categories/index.xml.builder (9.0ms)
+Completed 200 OK in 17ms (Views: 11.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (4.4ms)
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (3.6ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories.xml" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 37ms (Views: 1.3ms | ActiveRecord: 33.1ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (2.3ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=10" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"10"}
+Rendered tweets/month.xml.builder (9.9ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tweets/month.xml?q=11" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"11"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=12" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"12"}
+Rendered tweets/month.xml.builder (1.3ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml?gsCacheBusterID=1292228642579&purpose=audit" for 210.104.44.66 at 2010-12-13 17:22:46 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292228642579", "purpose"=>"audit"}
+Completed 200 OK in 271ms (Views: 1.0ms | ActiveRecord: 28.4ms)
+
+
+Started GET "/treedatas.xml" for 210.104.44.66 at 2010-12-13 17:22:47 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 226ms (Views: 0.3ms | ActiveRecord: 60.3ms)
+
+
+Started GET "/treedatas.xml" for 210.104.44.66 at 2010-12-13 17:22:58 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:23:00 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.4ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/treedatas.xml" for 210.104.44.66 at 2010-12-13 17:23:08 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:23:52 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (3.2ms)
+Rendered tweets/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:24:55 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.5ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:27:06 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (54.8ms)
+Completed 200 OK in 56ms (Views: 53.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:27:41 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (6.2ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292228938671" for 175.221.202.94 at 2010-12-13 17:27:42 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228938671"}
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:27:42 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.8ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:27:42 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292228938672" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228938672"}
+Completed 200 OK in 255ms (Views: 0.3ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:27:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (1.5ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:27:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:27:44 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/tweets/month.xml?q=8" for 175.221.202.94 at 2010-12-13 17:27:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"8"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tweets/month.xml?q=9" for 175.221.202.94 at 2010-12-13 17:27:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"9"}
+Rendered tweets/month.xml.builder (1.9ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:27:55 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:28:06 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:28:17 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:28:24 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (53.9ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:28:28 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:28:33 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:28:40 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (4.3ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292228996359" for 175.221.202.94 at 2010-12-13 17:28:40 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228996359"}
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:28:42 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:28:42 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (25.6ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:28:42 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292228996360" for 175.221.202.94 at 2010-12-13 17:28:42 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292228996360"}
+Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 55.5ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:28:42 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:28:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:28:43 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 242ms (Views: 0.3ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:28:43 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:28:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:28:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (1.3ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:28:44 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.5ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:28:54 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 218ms (Views: 0.3ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:29:06 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 247ms (Views: 0.3ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:29:17 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 230ms (Views: 0.2ms | ActiveRecord: 26.7ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:29:27 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:29:38 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 214ms (Views: 0.5ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:29:45 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (23.5ms)
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:29:49 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.4ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:30:02 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.1ms)
+Rendered tweets/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 90ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:32:01 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (7.1ms)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?gsCacheBusterID=1292229197312&purpose=audit" for 175.221.202.94 at 2010-12-13 17:32:02 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292229197312", "purpose"=>"audit"}
+Rendered categories/index.xml.builder (76.9ms)
+Completed 200 OK in 87ms (Views: 80.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:32:02 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.5ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:32:03 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (30.5ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/treedatas.xml?gsCacheBusterID=1292229197313&purpose=audit" for 175.221.202.94 at 2010-12-13 17:32:03 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"gsCacheBusterID"=>"1292229197313", "purpose"=>"audit"}
+Completed 200 OK in 279ms (Views: 0.8ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/tweets/month.xml?q=1" for 175.221.202.94 at 2010-12-13 17:32:03 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"1"}
+Rendered tweets/month.xml.builder (37.3ms)
+Completed 200 OK in 102ms (Views: 39.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/tweets/month.xml?q=2" for 175.221.202.94 at 2010-12-13 17:32:03 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"2"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=3" for 175.221.202.94 at 2010-12-13 17:32:04 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"3"}
+Rendered tweets/month.xml.builder (3.7ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:32:04 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 300ms (Views: 1.0ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/tweets/month.xml?q=4" for 175.221.202.94 at 2010-12-13 17:32:04 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"4"}
+Rendered tweets/month.xml.builder (0.7ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=5" for 175.221.202.94 at 2010-12-13 17:32:04 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"5"}
+Rendered tweets/month.xml.builder (0.6ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=6" for 175.221.202.94 at 2010-12-13 17:32:05 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"6"}
+Rendered tweets/month.xml.builder (5.1ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tweets/month.xml?q=7" for 175.221.202.94 at 2010-12-13 17:32:06 +0900
+  Processing by TweetsController#month as XML
+  Parameters: {"q"=>"7"}
+Rendered tweets/month.xml.builder (3.8ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:32:16 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:32:20 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (61.1ms)
+Completed 200 OK in 63ms (Views: 60.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:32:46 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.8ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:36:34 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (52.6ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:36:37 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (3.7ms)
+Rendered tweets/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:37:04 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (25.2ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:37:51 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (54.9ms)
+Completed 200 OK in 56ms (Views: 53.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 203.229.166.237 at 2010-12-13 17:38:17 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (24.3ms)
+Completed 200 OK in 25ms (Views: 23.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:40:36 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (14.2ms)
+Rendered tweets/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 90ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tweets/tweetlist" for 175.221.202.94 at 2010-12-13 17:40:44 +0900
+  Processing by TweetsController#tweetlist as HTML
+Rendered tweets/tweetlist.html.erb within layouts/list (7.3ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories.xml?purpose=audit&gsCacheBusterID=1292229722625" for 175.221.202.94 at 2010-12-13 17:40:46 +0900
+  Processing by CategoriesController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292229722625"}
+Rendered categories/index.xml.builder (72.9ms)
+Completed 200 OK in 82ms (Views: 76.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tweets.xml" for 175.221.202.94 at 2010-12-13 17:40:46 +0900
+  Processing by TweetsController#index as XML
+Rendered tweets/index.xml.builder (32.4ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories.xml" for 175.221.202.94 at 2010-12-13 17:40:46 +0900
+  Processing by CategoriesController#index as XML
+Rendered categories/index.xml.builder (0.6ms)
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/treedatas.xml?purpose=audit&gsCacheBusterID=1292229722626" for 175.221.202.94 at 2010-12-13 17:40:47 +0900
+  Processing by TreedatasController#index as XML
+  Parameters: {"purpose"=>"audit", "gsCacheBusterID"=>"1292229722626"}
+Completed 200 OK in 279ms (Views: 0.8ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/treedatas.xml" for 175.221.202.94 at 2010-12-13 17:40:47 +0900
+  Processing by TreedatasController#index as XML
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 53.3ms)
+
+
+Started GET "/" for 175.221.202.94 at 2010-12-13 17:40:52 +0900
+  Processing by TweetsController#index as HTML
+Rendered tweets/_form.html.erb (1.2ms)
+Rendered tweets/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)

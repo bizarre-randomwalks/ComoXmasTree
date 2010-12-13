@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class TweetsController < ApplicationController
   def index
+    @tweets = Tweet.order('created_at DESC')
     @tweet = Tweet.new
     respond_to do |format|
       format.html
