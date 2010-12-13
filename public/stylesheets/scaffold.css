@@ -18,7 +18,7 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
+a { color: #000; text-decoration:none; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
@@ -135,13 +135,20 @@ div.field, div.actions {
 {
   z-index:3;
   position:absolute;
-  bottom:0;
+  top:640px;
   left:200px;
+  height:230px;
+}
+
+#howto #tabs
+{
+  width:400px;
+
 }
 
 .windowst
 {
-  background-color:#ED1C24;
+  background-color:#AAA;
 }
 
 #window_01
@@ -159,6 +166,11 @@ div.field, div.actions {
 
 
 #window_03
+{
+  width:30px;
+  height:30px;
+}
+#window_04
 {
   width:30px;
   height:30px;

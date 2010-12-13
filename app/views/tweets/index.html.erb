@@ -1,3 +1,4 @@
+<div id="container">
 <p id="notice"><%= notice %></p>
 
 <div id="logo">
@@ -28,40 +29,56 @@
 </div>
 
 <div id="howto">
-  <div style="position:relative">
-    <div style="position:absolute;bottom:0;left:0;width:100px;float:left;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+
+  <div style="margin-bottom:10px"></div>
+  <div id="tabs">
+    <h2>참여 방법</h2>
+    <p>
+      <h3>홈페이지를 통해서</h3>
+      Connect to Twitter를 눌러서 트위터에 로그인하신 후, 2010년 기억에 남았던 날(기억을 더듬어보세요!)을 적으신 후 Tweet해 주세요. 
+    </p>
+    <p style="margin-top:10px">
+      <h3>@rdwks에게 멘션을 보내주세요.</h3>
+      랜덤웍스 트위터 계정(@rdwks) 으로 2010년 기억에 남았던 일을 날짜와 함께 보내주세요. 이후 랜덤웍스에서 분류하여 시각화합니다.
+    </p>
+  </div>
+  <div>
+    <div style="position:absolute;bottom:0;left:0;width:100px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_01" class="windowst">
       </div>
       Window 01 : <br/>Holiday Tree
     </div>
 
-    <div style="position:absolute;bottom:0;left:100px;width:100px;float:left;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+    <div style="position:absolute;bottom:0;left:100px;width:100px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_02" class="windowst">
       </div>
       Window 02 : <br/>Timeline
     </div>
-   
-    <div style="position:absolute;bottom:0;float:left;width:100px;left:300px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+    <div style="position:absolute;bottom:0;width:100px;left:200px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
       <div id="window_03" class="windowst">
       </div>
-      Window 03 : <br/>Lists
+      Window 03 : <br/>Picture
     </div>
-    <div style="clear:both"></div>
+   
+    <div style="position:absolute;bottom:0;width:100px;left:300px;margin-right:10px;font-size:0.8em;font-weight:bold;line-height:13px">
+      <div id="window_04" class="windowst">
+      </div>
+      Window 04 : <br/>Lists
+    </div>
+    
   </div>
+
 </div>
 <div id="rwlogo">
   <%= link_to  image_tag('rw_logo.jpg'), 'http://randomwalks.org' %>
 </div>
-  <div id="timeline_iframe" class="dragWindow">
-    <div id="timelineContent">
-    </div>
-  </div>
 
   <div id="tweet_list_iframe" class="dragWindow">
     <div id="listContent">
     </div>
   </div>
 
+  
   <div id="tree_iframe" class="dragWindow">
     <div id="flashContent">
 			<a href="http://www.adobe.com/go/getflashplayer">
@@ -73,7 +90,7 @@
 
 <div id="empty">
 </div>
-
+</div>
 <!--
   <table id="mention_table">
     <thead>
@@ -101,14 +118,19 @@
     $(".dragWindow").hide();
     $("#seeResult").click(function(e){
       e.preventDefault();
+      $("#container").animate({
+        y: -800
+      }, 800);
+
       $(".dragWindow").show();
       $("#empty").show();
       $("#tweet_list_iframe").dialog({resizable:false, position:[200, 'bottom'], width:200, height:350});
       $("#tree_iframe").dialog({resizable:false, position:[430, 'bottom'], width:700, height:620});
 
       $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
-      window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1250,height=120,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
-      
+      window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=110,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+      window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+     
       var flashvars = {};
       var params = {};
       var attributes = {};
@@ -120,6 +142,7 @@
   });
 
   twttr.anywhere(function (T) {
+    T.hovercards();
     if (T.isConnected())
     {
         $(".calendar").fadeIn();
@@ -160,6 +183,8 @@
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");  window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1250,height=120,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+            window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+     
      
             var flashvars = {};
             var params = {};
@@ -183,7 +208,7 @@
             this.status.update(body, {
               success: $.proxy(this.addTweet, this),
               error: function(){
-                alert("failure");
+                alert("140자 이상 입력하셨거나 이미 등록된 트윗입니다.");
               }
             });
 
@@ -239,7 +264,8 @@
             $(".dragWindow").show();
             $("#tweet_list_iframe").dialog({title: 'Lists', resizable:false, position:[200, 'bottom'], width:200, height:350});
             $("#tree_iframe").dialog({title: 'Holiday Tree', resizable:false, position:[430, 'bottom'], width:700, height:620});
-            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");  window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1250,height=120,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+            $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");  window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1250,height=120,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0"); window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=0,top=0");
+     
      
 
             var flashvars = {};
@@ -264,7 +290,7 @@
             this.status.update(body, {
               success: $.proxy(this.addTweet, this),
               error: function(){
-                alert("failure");
+                alert("140자 이상 입력하셨거나 이미 등록된 트윗입니다.");
               }
             });
 

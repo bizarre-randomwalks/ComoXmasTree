@@ -4,7 +4,7 @@
     <!-- charset must remain utf-8 to be handled properly by Processing -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-    <title>xMas_timeline : Built with Processing</title>
+    <title>RW_Event : Built with Processing</title>
 
     <style type="text/css">
       /* <![CDATA[ */
@@ -14,23 +14,25 @@
       padding:0;
 	  font-family: verdana, geneva, arial, helvetica, sans-serif; 
 	  font-size: 11px; 
-	  background-color: #FFF; 
+	  background-color: #FFF;
 	  text-decoration: none; 
 	  font-weight: normal; 
 	  line-height: normal; 
-    
 	}
-  #content
-  {
-    margin-left:-5px;
-  }
+		 
+	a          { color: #3399cc; }
+	a:link     { color: #3399cc; text-decoration: underline; }
+	a:visited  { color: #3399cc; text-decoration: underline; }
+	a:active   { color: #3399cc; text-decoration: underline; }
+	a:hover    { color: #3399cc; text-decoration: underline; }
+
       /* ]]> */
     </style>    
   </head>
 
   <body>
     <div id="content">
-      <div id="xMas_timeline_container">
+      <div id="RW_Event_container">
 
 	<!-- This version plays nicer with older browsers, 
 	     but requires JavaScript to be enabled. 
@@ -40,9 +42,13 @@
 	<script type="text/javascript">
 	  /* <![CDATA[ */
 
-	  var attributes = { code:'xMas_timeline.class',
-                             archive: 'xMas_timeline.jar',
-                             width:1200, height:100 } ;
+	  var attributes = { 
+            code: 'RW_Event.class',
+            archive: 'RW_Event.jar',
+            width: 300, 
+            height: 300,
+            image: 'loading.gif'
+          };
           var parameters = { };
           var version = '1.5';
           deployJava.runApplet(attributes, parameters, version);
@@ -52,13 +58,13 @@
         
 	<noscript> <div>
 	  <!--[if !IE]> -->
-	  <object classid="java:xMas_timeline.class" 
+	  <object classid="java:RW_Event.class" 
             	  type="application/x-java-applet"
-            	  archive="xMas_timeline.jar"
-            	  width="1200" height="100"
+            	  archive="RW_Event.jar"
+            	  width="300" height="300"
             	  standby="Loading Processing software..." >
             
-	    <param name="archive" value="xMas_timeline.jar" />
+	    <param name="archive" value="RW_Event.jar" />
 	    
 	    <param name="mayscript" value="true" />
 	    <param name="scriptable" value="true" />
@@ -75,12 +81,12 @@
 		 http://java.sun.com/javase/6/webnotes/family-clsid.html
 		 http://java.sun.com/javase/6/webnotes/install/jre/autodownload.html -->
 	    <object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"
-		    codebase="http://java.sun.com/update/1.6.0/jinstall-6u18-windows-i586.cab"
-		    width="1200" height="100"
+		    codebase="http://java.sun.com/update/1.6.0/jinstall-6u20-windows-i586.cab"
+		    width="300" height="300"
 		    standby="Loading Processing software..."  >
 	      
-	      <param name="code" value="xMas_timeline" />
-	      <param name="archive" value="xMas_timeline.jar" />
+	      <param name="code" value="RW_Event" />
+	      <param name="archive" value="RW_Event.jar" />
 	      
 	      <param name="mayscript" value="true" />
 	      <param name="scriptable" value="true" />
@@ -113,6 +119,14 @@
       
       <p>
 	
+      </p>
+      
+      <p>
+	Source code: <a href="RW_Event.pde">RW_Event</a> <a href="FeedXml.pde">FeedXml</a> <a href="Nemo.pde">Nemo</a> 
+      </p>
+      
+      <p>
+	Built with <a href="http://processing.org" title="Processing.org">Processing</a>
       </p>
     </div>
   </body>
