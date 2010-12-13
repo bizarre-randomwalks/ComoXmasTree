@@ -118,9 +118,9 @@
       var tops = $(window).height() - 120;
       tops += '';
       
-      var profileTop = $(window).width - 200 - 700 - 200;
+      var profileTop = $(window).width() - 200 - 700 - 200;
       profileTop += '';
-      var profileLeft = $(window).height() - 120 - 620 - 200;
+      var profileLeft = $(window).height() - 120 - 420 - 200;
       profileLeft += '';
 
       window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
@@ -177,16 +177,16 @@
           
             $(".dragWindow").show();
             $("#empty").show();
-            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width - 200, $(window).height() - 120 - 350], width:200, height:350});
-            $("#tree_iframe").dialog({resizable:false, position:[$(window).width - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
+            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width() - 200, $(window).height() - 120 - 620], width:200, height:350});
+            $("#tree_iframe").dialog({resizable:false, position:[$(window).width() - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
 
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
             var tops = $(window).height() - 120;
             tops += '';
             
-            var profileTop = $(window).width - 200 - 700 - 200;
+            var profileTop = $(window).width() - 200 - 700 - 200;
             profileTop += '';
-            var profileLeft = $(window).height() - 120 - 620 - 200;
+            var profileLeft = $(window).height() - 120 - 420 - 200;
             profileLeft += '';
 
             window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
@@ -267,24 +267,23 @@
             //$(".dragWindow").show();
             
             
-            
+           
             $(".dragWindow").show();
             $("#empty").show();
-            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width - 200, $(window).height() - 120 - 350], width:200, height:350});
-            $("#tree_iframe").dialog({resizable:false, position:[$(window).width - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
+            $("#tweet_list_iframe").dialog({resizable:false, position:[$(window).width() - 200, $(window).height() - 120 - 620], width:200, height:350});
+            $("#tree_iframe").dialog({resizable:false, position:[$(window).width() - 200 - 700, $(window).height() - 120 - 620], width:700, height:620});
 
             $("#tweet_list_iframe").load("http://xmastree.randomwalks.org/tweets/tweetlist");
             var tops = $(window).height() - 120;
             tops += '';
             
-            var profileTop = $(window).width - 200 - 700 - 200;
+            var profileTop = $(window).width() - 200 - 700 - 200;
             profileTop += '';
-            var profileLeft = $(window).height() - 120 - 620 - 200;
+            var profileLeft = $(window).height() - 120 - 420 - 200;
             profileLeft += '';
 
             window.open("http://xmastree.randomwalks.org/applet/timeline.html","timeline","width=1200,height=100,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left=200,top=" + tops);
             window.open("http://xmastree.randomwalks.org/applet/profile.html","profile","width=300,height=300,toolbar=no,location=no,status=no,scrollbars=no,resizable=no,left="+profileLeft+",top=" + profileTop);
-           
 
             var flashvars = {};
             var params = {};
