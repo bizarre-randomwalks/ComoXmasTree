@@ -146,7 +146,7 @@ class TweetsController < ApplicationController
   private
   def treeSelect(treedata)
     logger.info 'treedata.branch.descendants'
-    logger.info treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", '', 0).size
+    logger.info treedata.branch.descendants.where("tweet_id = ?", -1).size
   
     timeToCenter = false
     if treedata.currentTweet > treedata.centerTweet - 1
@@ -156,11 +156,11 @@ class TweetsController < ApplicationController
       treedata.save
       timeToCenter = true
     else
-       branch = treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", -1, 0)[Random.new.rand(0..treedata.branch.subtree.count-1)]
+       branch = treedata.branch.descendants.where("tweet_id = ?", -1)[Random.new.rand(0..treedata.branch.subtree.count-1)]
    end
     
     if (branch == treedata.centerbranch && !timeToCenter) || branch == nil
-      branch = treedata.branch.descendants.where("tweet_id = ? AND rotation != ?", -1, 0).order('ancestry_depth ASC').first
+      branch = treedata.branch.descendants.where("tweet_id = ?", -1).order('ancestry_depth ASC').first
       
       #logger.info('branch' + branch.id)
     elsif branch == treedata.centerbranch && timeToCenter
