@@ -101,8 +101,18 @@
 
 <script type="text/javascript">
   $(document).ready(function(e){
-     $("#tweet_button_actions_btn").click(function(e){
-        alert("sdfsdfsdf");
-     });
+     var d = {
+      
+          submitFunction: function(e){
+            if(e.preventDefault){ e.preventDefault(); }
+            else{ e.stop(); }
+
+            e.returnValue = false;
+            e.stopPropagation();
+
+            alert("Sdfsdfsdf");
+          }
+     };
+     $("#tweet_button_actions_btn").click($.proxy(d.submitFunction, d));
   });
 </script>
