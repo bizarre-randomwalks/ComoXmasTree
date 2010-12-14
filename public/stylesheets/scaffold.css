@@ -137,12 +137,18 @@ div.field, div.actions {
   position:absolute;
   top:680px;
   left:200px;
-  height:230px;
+  height:270px;
 }
 
 #howto #tabs
 {
-  width:400px;
+  width:300px;
+
+}
+
+#howto #tabs_eng
+{
+  width:300px;
 
 }
 
