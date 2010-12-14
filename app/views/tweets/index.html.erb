@@ -147,6 +147,10 @@
 
     });
 
+    
+          
+    
+
     twttr.anywhere(function (T) {
       T.hovercards();
       
@@ -245,14 +249,10 @@
             }
           };
           
-          var simplep = {
-            func : function(e){
-              e.preventDefault();
-              alert("sdfsdf");
-            }
-          };
-
-          $("#tweet_button_actions_btn").click($.proxy(simplep.func, simplep));
+          $("#tweet_button_actions_btn").click(function(e){
+            e.preventDefault();
+            alert("sdfsdfsdfSDF");
+          });
 
       }
       else
