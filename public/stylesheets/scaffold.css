@@ -135,20 +135,20 @@ div.field, div.actions {
 {
   z-index:3;
   position:absolute;
-  top:680px;
+  top:640px;
   left:200px;
-  height:270px;
+  height:320px;
 }
 
 #howto #tabs
 {
-  width:300px;
+  width:340px;
 
 }
 
 #howto #tabs_eng
 {
-  width:300px;
+  width:310px;
 
 }
 
