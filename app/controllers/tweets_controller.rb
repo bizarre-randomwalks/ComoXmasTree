@@ -8,6 +8,28 @@ class TweetsController < ApplicationController
       format.xml
     end
   end
+  
+  def edit
+    @tweet = Tweet.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def update
+    @tweet = Tweet.find(params[:id])
+    @tweet.update_attributes(params[:tweet])
+    
+    @branch = Branch.find(params[:branch_id])
+    @branch.tweet = @tweet
+    @branch.save
+
+    respond_to do |format|
+      format.html {redirect_to admins_path}
+    end
+
+  end
 
   def tweetlist
     @tweets = Tweet.order('created_at DESC')

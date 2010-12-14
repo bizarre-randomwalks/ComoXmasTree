@@ -24,6 +24,7 @@
 <% @tweets.each do |tweet| %>
   <tr>
     <td><%= tweet.title %></td>
+    <td><%= link_to 'Edit', tweet %></td>
     <td><%= link_to 'Destroy', tweet, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
