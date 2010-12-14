@@ -20,6 +20,9 @@ Comotree::Application.routes.draw do
 
 
   resources :tweets do
+    member do
+      put 'update_all'
+    end
     collection do
       get 'already_posted'
       get 'month'

@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  def update
+  def update_all
     @tweet = Tweet.find(params[:id])
     @tweet.update_attributes(params[:tweet])
     

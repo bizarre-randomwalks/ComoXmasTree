@@ -1,5 +1,5 @@
 <div id="tweet_form">
-  <%= form_for(@tweet) do |f| %>
+  <%= form_tag update_all_tweet_path(@tweet) do %>
     <% if @tweet.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,36 +11,37 @@
         </ul>
       </div>
     <% end %>   
+       <%= hidden_field_tag '_method', 'put' %>
     <div id="realform" style="background-color:#EBF9FE">
-      <div>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+     <div>
+        <%= label_tag 'tweet[title]' %>
+        <%= text_field_tag 'tweet[title]', @tweet.title %>
       </div>
       <div>
-        <%= f.label :status_id %>
-        <%= f.text_field :status_id %>
-      </div>
-      
-      <div>
-        <%= f.label :month %>
-        <%= f.text_field :month %>
-      </div>
-      
-      
-      <div>
-        <%= f.label :day %>
-        <%= f.text_field :day %>
+        <%= label_tag 'tweet[status_id]' %>
+        <%= text_field_tag 'tweet[status_id]', @tweet.status_id %>
       </div>
       
       <div>
-        <%= f.label :pic %>
-        <%= f.text_field :pic %>
+        <%= label_tag 'tweet[month]' %>
+        <%= text_field_tag 'tweet[month]', @tweet.month %>
+      </div>
+      
+      
+      <div>
+        <%= label_tag 'tweet[day]' %>
+        <%= text_field_tag 'tweet[day]', @tweet.day %>
+      </div>
+      
+      <div>
+        <%= label_tag 'tweet[pic]' %>
+        <%= text_field_tag 'tweet[pic]', @tweet.pic %>
       </div>
 
       
       <div>
-        <%= f.label :screen_name %>
-        <%= f.text_field :screen_name %>
+        <%= label_tag 'tweet[screen_name]' %>
+        <%= text_field_tag 'tweet[screen_name]', @tweet.screen_name %>
       </div>
 
       <div>

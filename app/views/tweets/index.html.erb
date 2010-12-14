@@ -223,7 +223,7 @@
           },
 
           submitFunction: function(e){
-            e.preventDefault();
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
             this.actionContainer.append(this.wait);
             var btn = $("#tweet_submit");
             btn.remove();
@@ -236,13 +236,10 @@
                 alert("140자 이상 입력하셨거나 이미 등록된 트윗입니다.");
               }
             });
-
-            
-
           }
         };
 
-        $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
+        $("#new_tweet").submit($.proxy(tweet_func.submitFunction, tweet_func));
     }
     else
     {
@@ -320,7 +317,7 @@
           },
 
           submitFunction: function(e){
-            e.preventDefault();
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
             this.actionContainer.append(this.wait);
             var btn = $("#tweet_submit");
             btn.remove();
@@ -333,8 +330,8 @@
                 alert("140자 이상 입력하셨거나 이미 등록된 트윗입니다.");
               }
             });
-
-            /*
+             
+           /*
             if (!($("#month").val() >= 1 && $("#month").val() <= 12))
             {
               $.errorMessage("달에는 1과 12 사이의 숫자만 입력하셔야 합니다.");
@@ -353,7 +350,7 @@
           }
         };
 
-           $("#new_tweet").live('submit', $.proxy(tweet_func.submitFunction, tweet_func));
+           $("#new_tweet").submit($.proxy(tweet_func.submitFunction, tweet_func));
     });
 
     T.bind("signOut", function (e) {
