@@ -222,3 +222,8 @@ div.field, div.actions {
   float:left;
   display:none;
 }
+
+#tweet_button_actions_btn_image:hover
+{
+  text-decoration:none;
+}
