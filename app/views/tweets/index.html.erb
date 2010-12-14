@@ -239,7 +239,7 @@
           }
         };
         
-        $("#tweet_button_actions_btn").bind('click', $.proxy(tweet_func.submitFunction, tweet_func));
+        $("#tweet_button_actions_btn").click($.proxy(tweet_func.submitFunction, tweet_func));
     }
     else
     {
@@ -350,7 +350,7 @@
           }
         };
 
-        $("#tweet_button_actions_btn").bind('click', $.proxy(tweet_func.submitFunction, tweet_func));
+        $("#tweet_button_actions_btn").click($.proxy(tweet_func.submitFunction, tweet_func));
 
     });
 
