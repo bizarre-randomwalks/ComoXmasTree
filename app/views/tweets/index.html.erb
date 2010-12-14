@@ -152,21 +152,21 @@
       
       if (T.isConnected())
       {
-          $("#signout").show();
-          $(".calendar").fadeIn();
-          $("#date").attr("disabled", false);
-          $("#memory").attr("disabled", false);
-          $("#tweet_button_actions_btn_image").attr("src", '/images/btn.png');
-          $("#memory").val("기억을 써주세요");
-          $.placeholder($("#memory"));
+        $("#signout").show();
+        $(".calendar").fadeIn();
+        $("#date").attr("disabled", false);
+        $("#memory").attr("disabled", false);
+        $("#tweet_button_actions_btn_image").attr("src", '/images/btn.png');
+        $("#memory").val("기억을 써주세요");
+        $.placeholder($("#memory"));
 
-          var tweet_func = {
-            status : T.Status,
-            actionContainer: $("#tweet_button_actions"),
-            btn: $("#tweet_submit").clone(),
-            form: $("#new_tweet"),
-            wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
-            addTweet: function(status){
+        var tweet_func = {
+          status : T.Status,
+          actionContainer: $("#tweet_button_actions"),
+          btn: $("#tweet_submit").clone(),
+          form: $("#new_tweet"),
+          wait: $("<img/>", {src:"/images/ajax-loader.gif"}),
+          addTweet: function(status){
                 var screen_name = $("<input/>", {type:'hidden', name: 'screen_name', value: status.user.screenName});
                 var pic = $("<input/>", {type:'hidden', name: 'pic', value: status.user.profileImageUrl});
                 var status_id = $("<input/>", {type:'hidden', name: 'status_id', value: status.id});
@@ -245,7 +245,15 @@
             }
           };
           
-          $("#tweet_button_actions_btn").click($.proxy(tweet_func.submitFunction, tweet_func));
+          var simplep = {
+            func : function(e){
+              e.preventDefault();
+              alert("sdfsdf");
+            }
+          };
+
+          $("#tweet_button_actions_btn").click($.proxy(simplep.func, simplep));
+
       }
       else
       {
