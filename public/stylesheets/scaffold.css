@@ -226,4 +226,5 @@ div.field, div.actions {
 #tweet_button_actions_btn:hover
 {
   text-decoration:none;
+  background:transparent;
 }
