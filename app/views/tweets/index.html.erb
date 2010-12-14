@@ -222,6 +222,12 @@
           },
 
           submitFunction: function(e){
+            if(e.preventDefault){ e.preventDefault(); }
+            else{ e.stop(); }
+
+            e.returnValue = false;
+            e.stopPropagation();
+            
             e.preventDefault ? e.preventDefault() : e.returnValue = false;
             this.actionContainer.append(this.wait);
             var btn = $("#tweet_submit");
@@ -317,7 +323,12 @@
           },
 
           submitFunction: function(e){
-            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            if(e.preventDefault){ e.preventDefault(); }
+            else{ e.stop(); }
+
+            e.returnValue = false;
+            e.stopPropagation();
+            
             this.actionContainer.append(this.wait);
             var btn = $("#tweet_submit");
             btn.remove();
