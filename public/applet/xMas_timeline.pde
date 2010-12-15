@@ -33,7 +33,7 @@ PGraphics[] ps;
 
 void setup(){
   size(1200,100);
-  frameRate(24);
+  frameRate(30);
 
   rns=new float[len];
   rnsNum=new int [len];
@@ -98,7 +98,7 @@ void draw(){
 
 
     count++;
-    if (count > 60){
+    if (count > 15){
       count=0;
       step=1;
     }
@@ -126,15 +126,19 @@ if(months[monthcount].mytweetlen==1){
   monthcount++;
 }
 
-months[monthcount].calender();
+println(monthcount);
+
+for (int i=0; i<12;i++){
+months[i].calender();
+}
 //}
     
     count++;
-    if (count > 90){
+    if (count > 120){
       count=0;
       step=0;
       monthcount++;
-      if (monthcount>11){
+     if (monthcount>11){
         monthcount=0;
       }
     }

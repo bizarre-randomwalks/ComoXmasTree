@@ -52,7 +52,7 @@ PGraphics[] ps;
 
 public void setup(){
   size(1200,100);
-  frameRate(24);
+  frameRate(30);
 
   rns=new float[len];
   rnsNum=new int [len];
@@ -117,7 +117,7 @@ public void draw(){
 
 
     count++;
-    if (count > 60){
+    if (count > 15){
       count=0;
       step=1;
     }
@@ -145,15 +145,19 @@ if(months[monthcount].mytweetlen==1){
   monthcount++;
 }
 
-months[monthcount].calender();
+println(monthcount);
+
+for (int i=0; i<12;i++){
+months[i].calender();
+}
 //}
     
     count++;
-    if (count > 90){
+    if (count > 120){
       count=0;
       step=0;
       monthcount++;
-      if (monthcount>11){
+     if (monthcount>11){
         monthcount=0;
       }
     }
@@ -423,7 +427,24 @@ class eachMonth{
      
          ps[index].textFont(ft,bigtx);
       ps[index].textAlign(RIGHT);
-    ps[index].text(ms[myMonth-1]+".",w+15,h);
+      
+      if(mytweetlen >1){
+   ps[index].text(ms[myMonth-1]+".",w+15,h);
+      } 
+      else{
+     float fs=w*0.5f;
+    fs=constrain(fs,5,20);
+    ps[index]. textFont(ft,fs);
+     ps[index].fill(255);
+     ps[index].textAlign(CENTER);
+    float fh=h-h*0.5f;
+    fh=constrain(fh,fs,h);
+     ps[index].text(myMonth+1+"*/",px+w*0.5f,py+h*0.5f);
+    ps[index]. textFont(ft,fs*0.75f);
+     ps[index].text("_ _ _",px+w*0.5f,py+h*0.5f+5);
+    
+      }
+       
 
  
    ps[index].endDraw();
@@ -464,7 +485,6 @@ newrns[10]= 1026.0
 newrns[11] =1107.0
 
 */
-
 
 
   static public void main(String args[]) {
